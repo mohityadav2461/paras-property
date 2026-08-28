@@ -54,7 +54,7 @@ export async function generateMetadata({ params }) {
       : `Explore verified ${property.size} ${property.sizeUnit} ${property.propertyType} for sale in ${property.location}. Complete legal approval and registry ready.`,
     openGraph: {
       title: `${property.title} • ${priceText} • Paras Property`,
-      description: `Verified ${property.propertyType} in ${property.location}. ${property.size} ${property.sizeUnit} with clear legal title. Consult Ashok Yadav.`,
+      description: `Verified ${property.propertyType} in ${property.location}. ${property.size} ${property.sizeUnit} with clear legal title. Consult Ashok & Balbir Singh.`,
       images: [{ url: coverImage, width: 1200, height: 630, alt: property.title }],
       type: 'article',
     },
@@ -81,9 +81,9 @@ export default async function PropertyDetailPage({ params }) {
     .filter((p) => p.slug !== property.slug && p.status !== 'Hidden')
     .slice(0, 3);
 
-  const phone = settings?.phone || '+91 77426 50820';
-  const whatsappNumber = settings?.whatsapp || '7742650820';
-  const ownerName = settings?.ownerName || 'Ashok Yadav';
+  const phone = settings?.phone || '+91 70827 95453';
+  const whatsappNumber = settings?.whatsapp || '7082795453';
+  const ownerName = settings?.ownerName || 'Ashok & Balbir Singh';
   const ownerPhoto = settings?.ownerPhoto || '/images/ashok-yadav.jpg';
 
   const customMessage = getPropertyWhatsAppMessage(property);
@@ -311,20 +311,27 @@ export default async function PropertyDetailPage({ params }) {
             )}
           </div>
 
-          {/* Right Column: Sticky Contact & Ashok Yadav Profile Card */}
+          {/* Right Column: Sticky Contact & Advisors Profile Card */}
           <div className="space-y-6">
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm sticky top-24 space-y-5">
               {/* Consultant Header */}
               <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
-                <img
-                  src={ownerPhoto}
-                  alt={ownerName}
-                  className="w-14 h-14 rounded-full object-cover border-2 border-amber-500 shadow-sm"
-                />
+                <div className="flex -space-x-2">
+                  <img
+                    src="/images/ashok-yadav.jpg"
+                    alt="Ashok Yadav"
+                    className="w-12 h-12 rounded-full object-cover border-2 border-amber-500 shadow-sm"
+                  />
+                  <img
+                    src="/images/adv-balbir-singh.jpg"
+                    alt="Adv. Balbir Singh"
+                    className="w-12 h-12 rounded-full object-cover border-2 border-amber-500 shadow-sm"
+                  />
+                </div>
                 <div>
-                  <h3 className="text-base font-extrabold text-slate-900">{ownerName}</h3>
+                  <h3 className="text-sm font-extrabold text-slate-900">Ashok Yadav & Adv. Balbir Singh</h3>
                   <span className="text-xs text-amber-600 font-bold block">
-                    Direct Property Consultant
+                    Property & Legal Advisory
                   </span>
                   <span className="text-[11px] text-slate-400">Paras Property</span>
                 </div>
@@ -335,29 +342,57 @@ export default async function PropertyDetailPage({ params }) {
                   Interested in this property?
                 </h4>
                 <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                  Call or WhatsApp Ashok Yadav directly to inspect revenue title records or schedule a free site inspection.
+                  Call or WhatsApp our team directly to inspect revenue title records or schedule a free site inspection.
                 </p>
               </div>
 
-              {/* Direct Call Button */}
-              <a
-                href={`tel:${phone}`}
-                className="w-full py-3 px-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-xs transition-colors"
-              >
-                <Phone className="w-4 h-4 text-amber-400" />
-                <span>Call {phone}</span>
-              </a>
+              {/* Direct Call Options */}
+              <div className="space-y-2">
+                <a
+                  href="tel:+917742650820"
+                  className="w-full py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-between shadow-xs transition-colors"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <Phone className="w-3.5 h-3.5 text-amber-400" />
+                    <span>Call Ashok Yadav</span>
+                  </span>
+                  <span className="text-[11px] text-amber-400 font-semibold">7742650820</span>
+                </a>
 
-              {/* WhatsApp Button */}
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-3 px-4 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-xs transition-colors"
-              >
-                <MessageCircle className="w-4 h-4 fill-current" />
-                <span>Chat on WhatsApp</span>
-              </a>
+                <a
+                  href="tel:+917082795453"
+                  className="w-full py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-between shadow-xs transition-colors"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <Phone className="w-3.5 h-3.5 text-amber-400" />
+                    <span>Call Adv. Balbir</span>
+                  </span>
+                  <span className="text-[11px] text-amber-400 font-semibold">7082795453</span>
+                </a>
+              </div>
+
+              {/* WhatsApp Buttons */}
+              <div className="grid grid-cols-2 gap-2">
+                <a
+                  href={getWhatsAppUrl('7742650820', customMessage)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-2.5 px-2 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-xs transition-colors"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 fill-current" />
+                  <span>WhatsApp Ashok</span>
+                </a>
+
+                <a
+                  href={getWhatsAppUrl('7082795453', customMessage)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-2.5 px-2 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-xs transition-colors"
+                >
+                  <MessageCircle className="w-3.5 h-3.5 fill-current" />
+                  <span>WhatsApp Balbir</span>
+                </a>
+              </div>
 
               {/* Enquire Modal Trigger */}
               <EnquiryModalTrigger property={property} />

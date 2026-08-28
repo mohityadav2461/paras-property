@@ -138,7 +138,7 @@ export default function PropertyCard({ property }) {
           target="_blank"
           rel="noopener noreferrer"
           className="col-span-1 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white flex items-center justify-center transition-colors shadow-xs"
-          title="WhatsApp Enquiry to Ashok Yadav"
+          title="WhatsApp Enquiry to Ashok & Balbir"
         >
           <MessageCircle className="w-4 h-4 fill-current" />
         </a>

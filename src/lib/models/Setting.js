@@ -18,11 +18,11 @@ const SettingSchema = new mongoose.Schema(
     },
     ownerName: {
       type: String,
-      default: 'Ashok Yadav',
+      default: 'Ashok Yadav & Adv. Balbir Singh',
     },
     ownerRole: {
       type: String,
-      default: 'Founder & Property Consultant',
+      default: 'Property & Legal Advisors',
     },
     ownerPhoto: {
       type: String,
@@ -30,7 +30,7 @@ const SettingSchema = new mongoose.Schema(
     },
     ownerMessage: {
       type: String,
-      default: 'With over a decade of hands-on experience in prime residential plots, commercial lands, and gated townships across Jaipur, my personal commitment at Paras Property is to ensure 100% legal title verification, direct developer pricing, and a smooth registry experience for every buyer.',
+      default: 'With over a decade of hands-on experience in prime residential plots, commercial lands, and gated townships across Jaipur, our personal commitment at Paras Property is to ensure 100% legal title verification, direct developer pricing, and a smooth registry experience for every buyer.',
     },
     phone: {
       type: String,
@@ -42,7 +42,7 @@ const SettingSchema = new mongoose.Schema(
     },
     email: {
       type: String,
-      default: 'ashokyadav@parasproperty.com',
+      default: 'contact@parasproperty.com',
     },
     address: {
       type: String,

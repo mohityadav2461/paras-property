@@ -1,11 +1,10 @@
 {
-  "/page": "app/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/properties/page": "app/properties/page.js",
-  "/api/properties/route": "app/api/properties/route.js",
-  "/api/leads/route": "app/api/leads/route.js",
-  "/api/analytics/route": "app/api/analytics/route.js",
-  "/admin/properties/new/page": "app/admin/properties/new/page.js",
-  "/admin/properties/page": "app/admin/properties/page.js",
-  "/admin/page": "app/admin/page.js",
-  "/admin/leads/page": "app/admin/leads/page.js"
+  "/page": "app/page.js",
+  "/contact/page": "app/contact/page.js",
+  "/about/page": "app/about/page.js",
+  "/api/auth/me/route": "app/api/auth/me/route.js",
+  "/api/settings/route": "app/api/settings/route.js",
+  "/admin/page": "app/admin/page.js"
 }

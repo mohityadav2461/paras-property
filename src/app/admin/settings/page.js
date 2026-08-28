@@ -42,13 +42,13 @@ export default function AdminSettingsPage() {
       setFormData({
         companyName: settings.companyName || 'Paras Property',
         tagline: settings.tagline || 'Verified Plots & Premium Properties in Prime Locations',
-        ownerName: settings.ownerName || 'Ashok Yadav',
-        ownerRole: settings.ownerRole || 'Founder & Property Consultant',
+        ownerName: settings.ownerName || 'Ashok Yadav & Adv. Balbir Singh',
+        ownerRole: settings.ownerRole || 'Property & Legal Advisors',
         ownerPhoto: settings.ownerPhoto || '/images/ashok-yadav.jpg',
         ownerMessage: settings.ownerMessage || '',
         phone: settings.phone || '+91 77426 50820',
         whatsapp: settings.whatsapp || '7742650820',
-        email: settings.email || 'ashokyadav@parasproperty.com',
+        email: settings.email || 'contact@parasproperty.com',
         address: settings.address || 'Tonk Road, Near Airport, Jaipur, Rajasthan 302018',
         metaPixelId: settings.metaPixelId || '',
         facebookUrl: settings.facebookUrl || '',
@@ -223,7 +223,7 @@ export default function AdminSettingsPage() {
             </label>
             <input
               type="text"
-              placeholder="+91 77426 50820"
+              placeholder="+91 70827 95453"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
               className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-900 focus:outline-none focus:border-amber-500 focus:bg-white"
@@ -239,7 +239,7 @@ export default function AdminSettingsPage() {
               <input
                 type="text"
                 required
-                placeholder="7742650820"
+                placeholder="7082795453"
                 value={formData.whatsapp}
                 onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
                 className="w-full pl-9 pr-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-900 font-mono font-bold focus:outline-none focus:border-amber-500 focus:bg-white"

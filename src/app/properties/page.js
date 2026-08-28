@@ -84,7 +84,7 @@ function PropertiesContent() {
           Plots & Properties in Jaipur
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 max-w-2xl">
-          Browse verified residential plots, commercial lands, luxury villas, and farmhouses in prime growth corridors. Direct advisory with Ashok Yadav.
+          Browse verified residential plots, commercial lands, luxury villas, and farmhouses in prime growth corridors. Direct advisory with Ashok Yadav & Adv. Balbir Singh.
         </p>
       </div>
 

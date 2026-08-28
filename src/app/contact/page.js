@@ -31,13 +31,13 @@ export default function ContactPage() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const phone = settings?.phone || '+91 77426 50820';
-  const whatsappNumber = settings?.whatsapp || '7742650820';
-  const ownerName = settings?.ownerName || 'Ashok Yadav';
+  const phone = settings?.phone || '+91 70827 95453';
+  const whatsappNumber = settings?.whatsapp || '7082795453';
+  const ownerName = settings?.ownerName || 'Ashok & Balbir Singh';
 
   const whatsappLink = getWhatsAppUrl(
     whatsappNumber,
-    `Hello Ashok ji, I would like to schedule a site visit and discuss available plot listings on Paras Property.`
+    `Hello Ashok ji & Balbir ji, I would like to schedule a site visit and discuss available plot listings on Paras Property.`
   );
 
   const handleSubmit = async (e) => {
@@ -86,7 +86,7 @@ export default function ContactPage() {
       });
 
       setIsSuccess(true);
-      showToast('Enquiry received! Ashok Yadav will reach out shortly.', 'success');
+      showToast('Enquiry received! Ashok & Balbir Singh will reach out shortly.', 'success');
       setFormData({ name: '', phone: '', email: '', budget: '', message: '' });
     } catch (err) {
       setErrorMessage(err.message || 'Failed to submit enquiry. Please try again.');
@@ -103,7 +103,7 @@ export default function ContactPage() {
           Get In Touch
         </span>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-          Contact {ownerName} & Paras Property
+          Contact Ashok & Balbir Singh • Paras Property
         </h1>
         <p className="text-xs sm:text-sm text-slate-500">
           Schedule a personalized site inspection, request verified revenue documents, or consult directly on land investment.
@@ -112,89 +112,128 @@ export default function ContactPage() {
 
       {/* Main Grid: Contact Cards + Lead Form */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Left Column: Direct Contact Details (1 col) */}
+        {/* Left Column: Direct Contact Details for Both Teammates (1 col) */}
         <div className="space-y-4">
-          <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-xs space-y-6">
-            <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
+          {/* Ashok Yadav Card */}
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+            <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
               <img
-                src={settings?.ownerPhoto || '/images/ashok-yadav.jpg'}
-                alt={ownerName}
-                className="w-14 h-14 rounded-full object-cover border-2 border-amber-500 shadow-sm"
+                src="/images/ashok-yadav.jpg"
+                alt="Ashok Yadav"
+                className="w-13 h-13 rounded-full object-cover border-2 border-amber-500 shadow-sm"
               />
               <div>
-                <h3 className="text-base font-bold text-slate-900">{ownerName}</h3>
+                <h3 className="text-base font-bold text-slate-900">Ashok Yadav</h3>
                 <span className="text-xs text-amber-600 font-bold block">
-                  {settings?.ownerRole || 'Founder & Property Consultant'}
+                  Founder & Property Consultant
                 </span>
-                <span className="text-[11px] text-slate-400">Paras Property</span>
+                <span className="text-[11px] text-slate-400">Jaipur Land Acquisitions</span>
               </div>
             </div>
 
-            {/* Phone */}
+            <div className="grid grid-cols-2 gap-2">
+              <a
+                href="tel:+917742650820"
+                className="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors"
+              >
+                <Phone className="w-3.5 h-3.5 text-amber-400" />
+                <span>Call 7742650820</span>
+              </a>
+
+              <a
+                href={getWhatsAppUrl('7742650820', 'Hi Ashok ji, I would like to schedule a site visit and discuss available plot listings.')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-2.5 px-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors"
+              >
+                <MessageCircle className="w-3.5 h-3.5 fill-current" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Adv. Balbir Singh Card */}
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs space-y-4">
+            <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
+              <img
+                src="/images/adv-balbir-singh.jpg"
+                alt="Adv. Balbir Singh"
+                className="w-13 h-13 rounded-full object-cover border-2 border-amber-500 shadow-sm"
+              />
+              <div>
+                <h3 className="text-base font-bold text-slate-900">Adv. Balbir Singh</h3>
+                <span className="text-xs text-amber-600 font-bold block">
+                  Advocate & Legal Advisor
+                </span>
+                <span className="text-[11px] text-slate-400">Title Scrutiny & Registry</span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-2">
+              <a
+                href="tel:+917082795453"
+                className="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors"
+              >
+                <Phone className="w-3.5 h-3.5 text-amber-400" />
+                <span>Call 7082795453</span>
+              </a>
+
+              <a
+                href={getWhatsAppUrl('7082795453', 'Hi Adv. Balbir ji, I would like to consult regarding plot title verification.')}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-2.5 px-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors"
+              >
+                <MessageCircle className="w-3.5 h-3.5 fill-current" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Office Address & Working Hours Card with Google Maps */}
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs space-y-4">
             <div className="flex items-start gap-3">
               <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-700 flex items-center justify-center shrink-0 mt-0.5">
-                <Phone className="w-5 h-5" />
+                <MapPin className="w-5 h-5 text-amber-600" />
               </div>
-              <div>
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">Call Directly</span>
-                <a href={`tel:${phone}`} className="text-sm font-bold text-slate-900 hover:underline">
-                  {phone}
-                </a>
-              </div>
-            </div>
-
-            {/* WhatsApp */}
-            <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#25D366]/10 text-[#25D366] flex items-center justify-center shrink-0 mt-0.5">
-                <MessageCircle className="w-5 h-5 fill-current" />
-              </div>
-              <div>
-                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">WhatsApp Chat</span>
-                <a
-                  href={whatsappLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-bold text-emerald-700 hover:underline"
-                >
-                  Chat with Ashok Yadav ({whatsappNumber})
-                </a>
+              <div className="space-y-1">
+                <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">Office Location</span>
+                <span className="text-xs font-bold text-slate-900 leading-snug block">
+                  Kotputli - Jaipur Corridor Office
+                </span>
+                <span className="text-xs text-slate-600 leading-relaxed block">
+                  27°47&apos;15.1&quot;N 76°13&apos;57.5&quot;E, Kotputli, Rajasthan 303108
+                </span>
               </div>
             </div>
 
-            {/* Email */}
-            {settings?.email && (
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 mt-0.5">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">Email Support</span>
-                  <a href={`mailto:${settings.email}`} className="text-sm font-medium text-slate-900 hover:underline">
-                    {settings.email}
-                  </a>
-                </div>
-              </div>
-            )}
+            {/* Embedded Google Map Preview */}
+            <div className="rounded-xl overflow-hidden border border-slate-200 h-36 bg-slate-100 relative">
+              <iframe
+                title="Paras Properties Office Location"
+                src="https://maps.google.com/maps?q=27.787535,76.23264&hl=en&z=16&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
 
-            {/* Address */}
-            {settings?.address && (
-              <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-xl bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 mt-0.5">
-                  <MapPin className="w-5 h-5 text-amber-600" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block">Office Location</span>
-                  <span className="text-xs text-slate-700 leading-relaxed block mt-0.5">
-                    {settings.address}
-                  </span>
-                </div>
-              </div>
-            )}
+            <a
+              href="https://www.google.com/maps/place/27%C2%B047'15.1%22N+76%C2%B013'57.5%22E/@27.787777,76.230226,18z/data=!4m4!3m3!8m2!3d27.787535!4d76.23264?hl=en&entry=ttu&g_ep=EgoyMDI2MDgyNS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-2.5 px-3 rounded-xl bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold text-xs flex items-center justify-center gap-1.5 transition-colors shadow-xs"
+            >
+              <MapPin className="w-3.5 h-3.5" />
+              <span>Open in Google Maps (Kotputli Office)</span>
+            </a>
 
-            {/* Working Hours */}
             <div className="pt-3 border-t border-slate-100 flex items-center gap-2 text-xs text-slate-500">
-              <Clock className="w-4 h-4 text-slate-400" />
-              <span>Office Hours: Monday - Sunday (9:00 AM - 7:30 PM)</span>
+              <Clock className="w-4 h-4 text-slate-400 shrink-0" />
+              <span>Office Hours: Mon - Sun (9:00 AM - 7:30 PM)</span>
             </div>
           </div>
         </div>
@@ -205,7 +244,7 @@ export default function ContactPage() {
             <div>
               <h3 className="text-xl font-bold text-slate-900">Send an Enquiry / Book Site Visit</h3>
               <p className="text-xs text-slate-500 mt-1">
-                Fill out the quick form below and Ashok Yadav will get in touch with you shortly.
+                Fill out the quick form below and Ashok & Balbir Singh will get in touch with you shortly.
               </p>
             </div>
 
@@ -216,7 +255,7 @@ export default function ContactPage() {
                 </div>
                 <h4 className="text-lg font-bold text-slate-900">Enquiry Successfully Submitted!</h4>
                 <p className="text-xs sm:text-sm text-slate-700 max-w-md mx-auto leading-relaxed">
-                  Thank you! Your message has reached Ashok Yadav. We will connect with you via Phone or WhatsApp shortly.
+                  Thank you! Your message has reached Ashok & Balbir Singh. We will connect with you via Phone or WhatsApp shortly.
                 </p>
                 <button
                   type="button"
@@ -319,7 +358,7 @@ export default function ContactPage() {
                   className="w-full py-3.5 px-6 rounded-xl bg-amber-500 hover:bg-amber-600 disabled:opacity-60 text-slate-950 font-extrabold text-sm shadow-md flex items-center justify-center gap-2 transition-all active:scale-98"
                 >
                   <Send className="w-4 h-4" />
-                  <span>{isSubmitting ? 'Submitting Enquiry...' : 'Submit Enquiry to Ashok Yadav'}</span>
+                  <span>{isSubmitting ? 'Submitting Enquiry...' : 'Submit Enquiry to Ashok & Balbir'}</span>
                 </button>
               </form>
             )}

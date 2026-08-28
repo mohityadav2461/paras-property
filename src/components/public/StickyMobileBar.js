@@ -10,12 +10,12 @@ export default function StickyMobileBar({ property }) {
   const { settings } = useSettings();
   const [enquiryOpen, setEnquiryOpen] = useState(false);
 
-  const phone = settings?.phone || '+91 77426 50820';
-  const whatsappNumber = settings?.whatsapp || '7742650820';
+  const phone = '+91 77426 50820';
+  const whatsappNumber = '7742650820';
 
   const message = property
     ? getPropertyWhatsAppMessage(property)
-    : `Hi Ashok ji, I am on the Paras Property website and would like to enquire about available plots.`;
+    : `Hi Ashok ji & Adv. Balbir ji, I am on the Paras Property website and would like to enquire about available plots.`;
 
   const whatsappUrl = getWhatsAppUrl(whatsappNumber, message);
 

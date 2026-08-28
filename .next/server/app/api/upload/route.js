@@ -1,0 +1,216 @@
+"use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+(() => {
+var exports = {};
+exports.id = "app/api/upload/route";
+exports.ids = ["app/api/upload/route"];
+exports.modules = {
+
+/***/ "../../client/components/action-async-storage.external":
+/*!*******************************************************************************!*\
+  !*** external "next/dist/client/components/action-async-storage.external.js" ***!
+  \*******************************************************************************/
+/***/ ((module) => {
+
+module.exports = require("next/dist/client/components/action-async-storage.external.js");
+
+/***/ }),
+
+/***/ "../../client/components/request-async-storage.external":
+/*!********************************************************************************!*\
+  !*** external "next/dist/client/components/request-async-storage.external.js" ***!
+  \********************************************************************************/
+/***/ ((module) => {
+
+module.exports = require("next/dist/client/components/request-async-storage.external.js");
+
+/***/ }),
+
+/***/ "../../client/components/static-generation-async-storage.external":
+/*!******************************************************************************************!*\
+  !*** external "next/dist/client/components/static-generation-async-storage.external.js" ***!
+  \******************************************************************************************/
+/***/ ((module) => {
+
+module.exports = require("next/dist/client/components/static-generation-async-storage.external.js");
+
+/***/ }),
+
+/***/ "next/dist/compiled/next-server/app-page.runtime.dev.js":
+/*!*************************************************************************!*\
+  !*** external "next/dist/compiled/next-server/app-page.runtime.dev.js" ***!
+  \*************************************************************************/
+/***/ ((module) => {
+
+module.exports = require("next/dist/compiled/next-server/app-page.runtime.dev.js");
+
+/***/ }),
+
+/***/ "next/dist/compiled/next-server/app-route.runtime.dev.js":
+/*!**************************************************************************!*\
+  !*** external "next/dist/compiled/next-server/app-route.runtime.dev.js" ***!
+  \**************************************************************************/
+/***/ ((module) => {
+
+module.exports = require("next/dist/compiled/next-server/app-route.runtime.dev.js");
+
+/***/ }),
+
+/***/ "buffer":
+/*!*************************!*\
+  !*** external "buffer" ***!
+  \*************************/
+/***/ ((module) => {
+
+module.exports = require("buffer");
+
+/***/ }),
+
+/***/ "crypto":
+/*!*************************!*\
+  !*** external "crypto" ***!
+  \*************************/
+/***/ ((module) => {
+
+module.exports = require("crypto");
+
+/***/ }),
+
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/***/ ((module) => {
+
+module.exports = require("fs");
+
+/***/ }),
+
+/***/ "http":
+/*!***********************!*\
+  !*** external "http" ***!
+  \***********************/
+/***/ ((module) => {
+
+module.exports = require("http");
+
+/***/ }),
+
+/***/ "https":
+/*!************************!*\
+  !*** external "https" ***!
+  \************************/
+/***/ ((module) => {
+
+module.exports = require("https");
+
+/***/ }),
+
+/***/ "path":
+/*!***********************!*\
+  !*** external "path" ***!
+  \***********************/
+/***/ ((module) => {
+
+module.exports = require("path");
+
+/***/ }),
+
+/***/ "querystring":
+/*!******************************!*\
+  !*** external "querystring" ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = require("querystring");
+
+/***/ }),
+
+/***/ "stream":
+/*!*************************!*\
+  !*** external "stream" ***!
+  \*************************/
+/***/ ((module) => {
+
+module.exports = require("stream");
+
+/***/ }),
+
+/***/ "url":
+/*!**********************!*\
+  !*** external "url" ***!
+  \**********************/
+/***/ ((module) => {
+
+module.exports = require("url");
+
+/***/ }),
+
+/***/ "util":
+/*!***********************!*\
+  !*** external "util" ***!
+  \***********************/
+/***/ ((module) => {
+
+module.exports = require("util");
+
+/***/ }),
+
+/***/ "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fapi%2Fupload%2Froute&page=%2Fapi%2Fupload%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fupload%2Froute.js&appDir=C%3A%5CUsers%5Cmohit%5COneDrive%5CDesktop%5Cwebsite%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5CUsers%5Cmohit%5COneDrive%5CDesktop%5Cwebsite&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fapi%2Fupload%2Froute&page=%2Fapi%2Fupload%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fupload%2Froute.js&appDir=C%3A%5CUsers%5Cmohit%5COneDrive%5CDesktop%5Cwebsite%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5CUsers%5Cmohit%5COneDrive%5CDesktop%5Cwebsite&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D! ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   originalPathname: () => (/* binding */ originalPathname),\n/* harmony export */   patchFetch: () => (/* binding */ patchFetch),\n/* harmony export */   requestAsyncStorage: () => (/* binding */ requestAsyncStorage),\n/* harmony export */   routeModule: () => (/* binding */ routeModule),\n/* harmony export */   serverHooks: () => (/* binding */ serverHooks),\n/* harmony export */   staticGenerationAsyncStorage: () => (/* binding */ staticGenerationAsyncStorage)\n/* harmony export */ });\n/* harmony import */ var next_dist_server_future_route_modules_app_route_module_compiled__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/dist/server/future/route-modules/app-route/module.compiled */ \"(rsc)/./node_modules/next/dist/server/future/route-modules/app-route/module.compiled.js\");\n/* harmony import */ var next_dist_server_future_route_modules_app_route_module_compiled__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_dist_server_future_route_modules_app_route_module_compiled__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var next_dist_server_future_route_kind__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! next/dist/server/future/route-kind */ \"(rsc)/./node_modules/next/dist/server/future/route-kind.js\");\n/* harmony import */ var next_dist_server_lib_patch_fetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/dist/server/lib/patch-fetch */ \"(rsc)/./node_modules/next/dist/server/lib/patch-fetch.js\");\n/* harmony import */ var next_dist_server_lib_patch_fetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_dist_server_lib_patch_fetch__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var C_Users_mohit_OneDrive_Desktop_website_src_app_api_upload_route_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./src/app/api/upload/route.js */ \"(rsc)/./src/app/api/upload/route.js\");\n\n\n\n\n// We inject the nextConfigOutput here so that we can use them in the route\n// module.\nconst nextConfigOutput = \"\"\nconst routeModule = new next_dist_server_future_route_modules_app_route_module_compiled__WEBPACK_IMPORTED_MODULE_0__.AppRouteRouteModule({\n    definition: {\n        kind: next_dist_server_future_route_kind__WEBPACK_IMPORTED_MODULE_1__.RouteKind.APP_ROUTE,\n        page: \"/api/upload/route\",\n        pathname: \"/api/upload\",\n        filename: \"route\",\n        bundlePath: \"app/api/upload/route\"\n    },\n    resolvedPagePath: \"C:\\\\Users\\\\mohit\\\\OneDrive\\\\Desktop\\\\website\\\\src\\\\app\\\\api\\\\upload\\\\route.js\",\n    nextConfigOutput,\n    userland: C_Users_mohit_OneDrive_Desktop_website_src_app_api_upload_route_js__WEBPACK_IMPORTED_MODULE_3__\n});\n// Pull out the exports that we need to expose from the module. This should\n// be eliminated when we've moved the other routes to the new format. These\n// are used to hook into the route.\nconst { requestAsyncStorage, staticGenerationAsyncStorage, serverHooks } = routeModule;\nconst originalPathname = \"/api/upload/route\";\nfunction patchFetch() {\n    return (0,next_dist_server_lib_patch_fetch__WEBPACK_IMPORTED_MODULE_2__.patchFetch)({\n        serverHooks,\n        staticGenerationAsyncStorage\n    });\n}\n\n\n//# sourceMappingURL=app-route.js.map//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9ub2RlX21vZHVsZXMvbmV4dC9kaXN0L2J1aWxkL3dlYnBhY2svbG9hZGVycy9uZXh0LWFwcC1sb2FkZXIuanM/bmFtZT1hcHAlMkZhcGklMkZ1cGxvYWQlMkZyb3V0ZSZwYWdlPSUyRmFwaSUyRnVwbG9hZCUyRnJvdXRlJmFwcFBhdGhzPSZwYWdlUGF0aD1wcml2YXRlLW5leHQtYXBwLWRpciUyRmFwaSUyRnVwbG9hZCUyRnJvdXRlLmpzJmFwcERpcj1DJTNBJTVDVXNlcnMlNUNtb2hpdCU1Q09uZURyaXZlJTVDRGVza3RvcCU1Q3dlYnNpdGUlNUNzcmMlNUNhcHAmcGFnZUV4dGVuc2lvbnM9dHN4JnBhZ2VFeHRlbnNpb25zPXRzJnBhZ2VFeHRlbnNpb25zPWpzeCZwYWdlRXh0ZW5zaW9ucz1qcyZyb290RGlyPUMlM0ElNUNVc2VycyU1Q21vaGl0JTVDT25lRHJpdmUlNUNEZXNrdG9wJTVDd2Vic2l0ZSZpc0Rldj10cnVlJnRzY29uZmlnUGF0aD10c2NvbmZpZy5qc29uJmJhc2VQYXRoPSZhc3NldFByZWZpeD0mbmV4dENvbmZpZ091dHB1dD0mcHJlZmVycmVkUmVnaW9uPSZtaWRkbGV3YXJlQ29uZmlnPWUzMCUzRCEiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7O0FBQXNHO0FBQ3ZDO0FBQ2M7QUFDNkI7QUFDMUc7QUFDQTtBQUNBO0FBQ0Esd0JBQXdCLGdIQUFtQjtBQUMzQztBQUNBLGNBQWMseUVBQVM7QUFDdkI7QUFDQTtBQUNBO0FBQ0E7QUFDQSxLQUFLO0FBQ0w7QUFDQTtBQUNBLFlBQVk7QUFDWixDQUFDO0FBQ0Q7QUFDQTtBQUNBO0FBQ0EsUUFBUSxpRUFBaUU7QUFDekU7QUFDQTtBQUNBLFdBQVcsNEVBQVc7QUFDdEI7QUFDQTtBQUNBLEtBQUs7QUFDTDtBQUN1SDs7QUFFdkgiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9oYXZlbi1lc3RhdGUtcHJvcGVydGllcy8/NDExZCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBBcHBSb3V0ZVJvdXRlTW9kdWxlIH0gZnJvbSBcIm5leHQvZGlzdC9zZXJ2ZXIvZnV0dXJlL3JvdXRlLW1vZHVsZXMvYXBwLXJvdXRlL21vZHVsZS5jb21waWxlZFwiO1xuaW1wb3J0IHsgUm91dGVLaW5kIH0gZnJvbSBcIm5leHQvZGlzdC9zZXJ2ZXIvZnV0dXJlL3JvdXRlLWtpbmRcIjtcbmltcG9ydCB7IHBhdGNoRmV0Y2ggYXMgX3BhdGNoRmV0Y2ggfSBmcm9tIFwibmV4dC9kaXN0L3NlcnZlci9saWIvcGF0Y2gtZmV0Y2hcIjtcbmltcG9ydCAqIGFzIHVzZXJsYW5kIGZyb20gXCJDOlxcXFxVc2Vyc1xcXFxtb2hpdFxcXFxPbmVEcml2ZVxcXFxEZXNrdG9wXFxcXHdlYnNpdGVcXFxcc3JjXFxcXGFwcFxcXFxhcGlcXFxcdXBsb2FkXFxcXHJvdXRlLmpzXCI7XG4vLyBXZSBpbmplY3QgdGhlIG5leHRDb25maWdPdXRwdXQgaGVyZSBzbyB0aGF0IHdlIGNhbiB1c2UgdGhlbSBpbiB0aGUgcm91dGVcbi8vIG1vZHVsZS5cbmNvbnN0IG5leHRDb25maWdPdXRwdXQgPSBcIlwiXG5jb25zdCByb3V0ZU1vZHVsZSA9IG5ldyBBcHBSb3V0ZVJvdXRlTW9kdWxlKHtcbiAgICBkZWZpbml0aW9uOiB7XG4gICAgICAgIGtpbmQ6IFJvdXRlS2luZC5BUFBfUk9VVEUsXG4gICAgICAgIHBhZ2U6IFwiL2FwaS91cGxvYWQvcm91dGVcIixcbiAgICAgICAgcGF0aG5hbWU6IFwiL2FwaS91cGxvYWRcIixcbiAgICAgICAgZmlsZW5hbWU6IFwicm91dGVcIixcbiAgICAgICAgYnVuZGxlUGF0aDogXCJhcHAvYXBpL3VwbG9hZC9yb3V0ZVwiXG4gICAgfSxcbiAgICByZXNvbHZlZFBhZ2VQYXRoOiBcIkM6XFxcXFVzZXJzXFxcXG1vaGl0XFxcXE9uZURyaXZlXFxcXERlc2t0b3BcXFxcd2Vic2l0ZVxcXFxzcmNcXFxcYXBwXFxcXGFwaVxcXFx1cGxvYWRcXFxccm91dGUuanNcIixcbiAgICBuZXh0Q29uZmlnT3V0cHV0LFxuICAgIHVzZXJsYW5kXG59KTtcbi8vIFB1bGwgb3V0IHRoZSBleHBvcnRzIHRoYXQgd2UgbmVlZCB0byBleHBvc2UgZnJvbSB0aGUgbW9kdWxlLiBUaGlzIHNob3VsZFxuLy8gYmUgZWxpbWluYXRlZCB3aGVuIHdlJ3ZlIG1vdmVkIHRoZSBvdGhlciByb3V0ZXMgdG8gdGhlIG5ldyBmb3JtYXQuIFRoZXNlXG4vLyBhcmUgdXNlZCB0byBob29rIGludG8gdGhlIHJvdXRlLlxuY29uc3QgeyByZXF1ZXN0QXN5bmNTdG9yYWdlLCBzdGF0aWNHZW5lcmF0aW9uQXN5bmNTdG9yYWdlLCBzZXJ2ZXJIb29rcyB9ID0gcm91dGVNb2R1bGU7XG5jb25zdCBvcmlnaW5hbFBhdGhuYW1lID0gXCIvYXBpL3VwbG9hZC9yb3V0ZVwiO1xuZnVuY3Rpb24gcGF0Y2hGZXRjaCgpIHtcbiAgICByZXR1cm4gX3BhdGNoRmV0Y2goe1xuICAgICAgICBzZXJ2ZXJIb29rcyxcbiAgICAgICAgc3RhdGljR2VuZXJhdGlvbkFzeW5jU3RvcmFnZVxuICAgIH0pO1xufVxuZXhwb3J0IHsgcm91dGVNb2R1bGUsIHJlcXVlc3RBc3luY1N0b3JhZ2UsIHN0YXRpY0dlbmVyYXRpb25Bc3luY1N0b3JhZ2UsIHNlcnZlckhvb2tzLCBvcmlnaW5hbFBhdGhuYW1lLCBwYXRjaEZldGNoLCAgfTtcblxuLy8jIHNvdXJjZU1hcHBpbmdVUkw9YXBwLXJvdXRlLmpzLm1hcCJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fapi%2Fupload%2Froute&page=%2Fapi%2Fupload%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fupload%2Froute.js&appDir=C%3A%5CUsers%5Cmohit%5COneDrive%5CDesktop%5Cwebsite%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5CUsers%5Cmohit%5COneDrive%5CDesktop%5Cwebsite&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!\n");
+
+/***/ }),
+
+/***/ "(rsc)/./src/app/api/upload/route.js":
+/*!*************************************!*\
+  !*** ./src/app/api/upload/route.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   POST: () => (/* binding */ POST)\n/* harmony export */ });\n/* harmony import */ var next_server__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next/server */ \"(rsc)/./node_modules/next/dist/api/server.js\");\n/* harmony import */ var _lib_cloudinary__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/lib/cloudinary */ \"(rsc)/./src/lib/cloudinary.js\");\n/* harmony import */ var _lib_auth__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/lib/auth */ \"(rsc)/./src/lib/auth.js\");\n\n\n\nasync function POST(request) {\n    try {\n        const session = await (0,_lib_auth__WEBPACK_IMPORTED_MODULE_2__.getSession)();\n        if (!session) {\n            return next_server__WEBPACK_IMPORTED_MODULE_0__.NextResponse.json({\n                error: \"Unauthorized\"\n            }, {\n                status: 401\n            });\n        }\n        const formData = await request.formData();\n        const file = formData.get(\"file\");\n        const resourceType = formData.get(\"resourceType\") || \"auto\"; // 'image' | 'video' | 'auto'\n        if (!file) {\n            return next_server__WEBPACK_IMPORTED_MODULE_0__.NextResponse.json({\n                error: \"No file uploaded\"\n            }, {\n                status: 400\n            });\n        }\n        // Convert file to base64 data URI for Cloudinary / local processing\n        const bytes = await file.arrayBuffer();\n        const buffer = Buffer.from(bytes);\n        const mimeType = file.type || \"image/jpeg\";\n        const base64Data = `data:${mimeType};base64,${buffer.toString(\"base64\")}`;\n        const uploadResult = await (0,_lib_cloudinary__WEBPACK_IMPORTED_MODULE_1__.uploadMedia)(base64Data, {\n            resource_type: resourceType\n        });\n        return next_server__WEBPACK_IMPORTED_MODULE_0__.NextResponse.json({\n            success: true,\n            url: uploadResult.url,\n            publicId: uploadResult.publicId,\n            resourceType: uploadResult.resourceType\n        });\n    } catch (error) {\n        console.error(\"Upload API error:\", error);\n        return next_server__WEBPACK_IMPORTED_MODULE_0__.NextResponse.json({\n            error: error.message || \"Upload failed. Please try again.\"\n        }, {\n            status: 500\n        });\n    }\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9zcmMvYXBwL2FwaS91cGxvYWQvcm91dGUuanMiLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUEyQztBQUNJO0FBQ1A7QUFFakMsZUFBZUcsS0FBS0MsT0FBTztJQUNoQyxJQUFJO1FBQ0YsTUFBTUMsVUFBVSxNQUFNSCxxREFBVUE7UUFDaEMsSUFBSSxDQUFDRyxTQUFTO1lBQ1osT0FBT0wscURBQVlBLENBQUNNLElBQUksQ0FBQztnQkFBRUMsT0FBTztZQUFlLEdBQUc7Z0JBQUVDLFFBQVE7WUFBSTtRQUNwRTtRQUVBLE1BQU1DLFdBQVcsTUFBTUwsUUFBUUssUUFBUTtRQUN2QyxNQUFNQyxPQUFPRCxTQUFTRSxHQUFHLENBQUM7UUFDMUIsTUFBTUMsZUFBZUgsU0FBU0UsR0FBRyxDQUFDLG1CQUFtQixRQUFRLDZCQUE2QjtRQUUxRixJQUFJLENBQUNELE1BQU07WUFDVCxPQUFPVixxREFBWUEsQ0FBQ00sSUFBSSxDQUFDO2dCQUFFQyxPQUFPO1lBQW1CLEdBQUc7Z0JBQUVDLFFBQVE7WUFBSTtRQUN4RTtRQUVBLG9FQUFvRTtRQUNwRSxNQUFNSyxRQUFRLE1BQU1ILEtBQUtJLFdBQVc7UUFDcEMsTUFBTUMsU0FBU0MsT0FBT0MsSUFBSSxDQUFDSjtRQUMzQixNQUFNSyxXQUFXUixLQUFLUyxJQUFJLElBQUk7UUFDOUIsTUFBTUMsYUFBYSxDQUFDLEtBQUssRUFBRUYsU0FBUyxRQUFRLEVBQUVILE9BQU9NLFFBQVEsQ0FBQyxVQUFVLENBQUM7UUFFekUsTUFBTUMsZUFBZSxNQUFNckIsNERBQVdBLENBQUNtQixZQUFZO1lBQ2pERyxlQUFlWDtRQUNqQjtRQUVBLE9BQU9aLHFEQUFZQSxDQUFDTSxJQUFJLENBQUM7WUFDdkJrQixTQUFTO1lBQ1RDLEtBQUtILGFBQWFHLEdBQUc7WUFDckJDLFVBQVVKLGFBQWFJLFFBQVE7WUFDL0JkLGNBQWNVLGFBQWFWLFlBQVk7UUFDekM7SUFDRixFQUFFLE9BQU9MLE9BQU87UUFDZG9CLFFBQVFwQixLQUFLLENBQUMscUJBQXFCQTtRQUNuQyxPQUFPUCxxREFBWUEsQ0FBQ00sSUFBSSxDQUN0QjtZQUFFQyxPQUFPQSxNQUFNcUIsT0FBTyxJQUFJO1FBQW1DLEdBQzdEO1lBQUVwQixRQUFRO1FBQUk7SUFFbEI7QUFDRiIsInNvdXJjZXMiOlsid2VicGFjazovL2hhdmVuLWVzdGF0ZS1wcm9wZXJ0aWVzLy4vc3JjL2FwcC9hcGkvdXBsb2FkL3JvdXRlLmpzPzZhMmEiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgTmV4dFJlc3BvbnNlIH0gZnJvbSAnbmV4dC9zZXJ2ZXInO1xuaW1wb3J0IHsgdXBsb2FkTWVkaWEgfSBmcm9tICdAL2xpYi9jbG91ZGluYXJ5JztcbmltcG9ydCB7IGdldFNlc3Npb24gfSBmcm9tICdAL2xpYi9hdXRoJztcblxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIFBPU1QocmVxdWVzdCkge1xuICB0cnkge1xuICAgIGNvbnN0IHNlc3Npb24gPSBhd2FpdCBnZXRTZXNzaW9uKCk7XG4gICAgaWYgKCFzZXNzaW9uKSB7XG4gICAgICByZXR1cm4gTmV4dFJlc3BvbnNlLmpzb24oeyBlcnJvcjogJ1VuYXV0aG9yaXplZCcgfSwgeyBzdGF0dXM6IDQwMSB9KTtcbiAgICB9XG5cbiAgICBjb25zdCBmb3JtRGF0YSA9IGF3YWl0IHJlcXVlc3QuZm9ybURhdGEoKTtcbiAgICBjb25zdCBmaWxlID0gZm9ybURhdGEuZ2V0KCdmaWxlJyk7XG4gICAgY29uc3QgcmVzb3VyY2VUeXBlID0gZm9ybURhdGEuZ2V0KCdyZXNvdXJjZVR5cGUnKSB8fCAnYXV0byc7IC8vICdpbWFnZScgfCAndmlkZW8nIHwgJ2F1dG8nXG5cbiAgICBpZiAoIWZpbGUpIHtcbiAgICAgIHJldHVybiBOZXh0UmVzcG9uc2UuanNvbih7IGVycm9yOiAnTm8gZmlsZSB1cGxvYWRlZCcgfSwgeyBzdGF0dXM6IDQwMCB9KTtcbiAgICB9XG5cbiAgICAvLyBDb252ZXJ0IGZpbGUgdG8gYmFzZTY0IGRhdGEgVVJJIGZvciBDbG91ZGluYXJ5IC8gbG9jYWwgcHJvY2Vzc2luZ1xuICAgIGNvbnN0IGJ5dGVzID0gYXdhaXQgZmlsZS5hcnJheUJ1ZmZlcigpO1xuICAgIGNvbnN0IGJ1ZmZlciA9IEJ1ZmZlci5mcm9tKGJ5dGVzKTtcbiAgICBjb25zdCBtaW1lVHlwZSA9IGZpbGUudHlwZSB8fCAnaW1hZ2UvanBlZyc7XG4gICAgY29uc3QgYmFzZTY0RGF0YSA9IGBkYXRhOiR7bWltZVR5cGV9O2Jhc2U2NCwke2J1ZmZlci50b1N0cmluZygnYmFzZTY0Jyl9YDtcblxuICAgIGNvbnN0IHVwbG9hZFJlc3VsdCA9IGF3YWl0IHVwbG9hZE1lZGlhKGJhc2U2NERhdGEsIHtcbiAgICAgIHJlc291cmNlX3R5cGU6IHJlc291cmNlVHlwZSxcbiAgICB9KTtcblxuICAgIHJldHVybiBOZXh0UmVzcG9uc2UuanNvbih7XG4gICAgICBzdWNjZXNzOiB0cnVlLFxuICAgICAgdXJsOiB1cGxvYWRSZXN1bHQudXJsLFxuICAgICAgcHVibGljSWQ6IHVwbG9hZFJlc3VsdC5wdWJsaWNJZCxcbiAgICAgIHJlc291cmNlVHlwZTogdXBsb2FkUmVzdWx0LnJlc291cmNlVHlwZSxcbiAgICB9KTtcbiAgfSBjYXRjaCAoZXJyb3IpIHtcbiAgICBjb25zb2xlLmVycm9yKCdVcGxvYWQgQVBJIGVycm9yOicsIGVycm9yKTtcbiAgICByZXR1cm4gTmV4dFJlc3BvbnNlLmpzb24oXG4gICAgICB7IGVycm9yOiBlcnJvci5tZXNzYWdlIHx8ICdVcGxvYWQgZmFpbGVkLiBQbGVhc2UgdHJ5IGFnYWluLicgfSxcbiAgICAgIHsgc3RhdHVzOiA1MDAgfVxuICAgICk7XG4gIH1cbn1cbiJdLCJuYW1lcyI6WyJOZXh0UmVzcG9uc2UiLCJ1cGxvYWRNZWRpYSIsImdldFNlc3Npb24iLCJQT1NUIiwicmVxdWVzdCIsInNlc3Npb24iLCJqc29uIiwiZXJyb3IiLCJzdGF0dXMiLCJmb3JtRGF0YSIsImZpbGUiLCJnZXQiLCJyZXNvdXJjZVR5cGUiLCJieXRlcyIsImFycmF5QnVmZmVyIiwiYnVmZmVyIiwiQnVmZmVyIiwiZnJvbSIsIm1pbWVUeXBlIiwidHlwZSIsImJhc2U2NERhdGEiLCJ0b1N0cmluZyIsInVwbG9hZFJlc3VsdCIsInJlc291cmNlX3R5cGUiLCJzdWNjZXNzIiwidXJsIiwicHVibGljSWQiLCJjb25zb2xlIiwibWVzc2FnZSJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(rsc)/./src/app/api/upload/route.js\n");
+
+/***/ }),
+
+/***/ "(rsc)/./src/lib/auth.js":
+/*!*************************!*\
+  !*** ./src/lib/auth.js ***!
+  \*************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   attachAuthCookie: () => (/* binding */ attachAuthCookie),\n/* harmony export */   clearAuthCookie: () => (/* binding */ clearAuthCookie),\n/* harmony export */   getSession: () => (/* binding */ getSession),\n/* harmony export */   hashPassword: () => (/* binding */ hashPassword),\n/* harmony export */   signToken: () => (/* binding */ signToken),\n/* harmony export */   verifyPassword: () => (/* binding */ verifyPassword),\n/* harmony export */   verifyToken: () => (/* binding */ verifyToken)\n/* harmony export */ });\n/* harmony import */ var jsonwebtoken__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jsonwebtoken */ \"(rsc)/./node_modules/jsonwebtoken/index.js\");\n/* harmony import */ var jsonwebtoken__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jsonwebtoken__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var bcryptjs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bcryptjs */ \"(rsc)/./node_modules/bcryptjs/index.js\");\n/* harmony import */ var next_headers__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/headers */ \"(rsc)/./node_modules/next/dist/api/headers.js\");\n\n\n\nconst JWT_SECRET = process.env.NEXTAUTH_SECRET || \"haven_estate_development_jwt_secret_key_2026_xyz\";\nconst TOKEN_NAME = \"haven_admin_token\";\n/**\n * Hash a plain password using bcrypt\n */ async function hashPassword(plainPassword) {\n    const salt = await bcryptjs__WEBPACK_IMPORTED_MODULE_1__[\"default\"].genSalt(10);\n    return bcryptjs__WEBPACK_IMPORTED_MODULE_1__[\"default\"].hash(plainPassword, salt);\n}\n/**\n * Verify a plain password against a bcrypt hash\n */ async function verifyPassword(plainPassword, hashedPassword) {\n    return bcryptjs__WEBPACK_IMPORTED_MODULE_1__[\"default\"].compare(plainPassword, hashedPassword);\n}\n/**\n * Sign a JWT token for an authenticated user\n */ function signToken(user) {\n    return jsonwebtoken__WEBPACK_IMPORTED_MODULE_0___default().sign({\n        id: user._id || user.id,\n        email: user.email,\n        name: user.name,\n        role: user.role || \"admin\"\n    }, JWT_SECRET, {\n        expiresIn: \"7d\"\n    });\n}\n/**\n * Verify a JWT token\n */ function verifyToken(token) {\n    try {\n        return jsonwebtoken__WEBPACK_IMPORTED_MODULE_0___default().verify(token, JWT_SECRET);\n    } catch (err) {\n        return null;\n    }\n}\n/**\n * Get current authenticated admin session from cookies or Authorization header\n */ async function getSession(request) {\n    try {\n        // 1. Check Authorization header first if present in request or headers()\n        let authHeader = request?.headers?.get?.(\"authorization\");\n        if (!authHeader) {\n            try {\n                const headerStore = (0,next_headers__WEBPACK_IMPORTED_MODULE_2__.headers)();\n                authHeader = headerStore.get(\"authorization\");\n            } catch (e) {}\n        }\n        if (authHeader && authHeader.startsWith(\"Bearer \")) {\n            const token = authHeader.split(\" \")[1];\n            const verified = verifyToken(token);\n            if (verified) return verified;\n        }\n        // 2. Check Cookie Store\n        const cookieStore = (0,next_headers__WEBPACK_IMPORTED_MODULE_2__.cookies)();\n        const cookieToken = cookieStore.get(TOKEN_NAME)?.value;\n        if (cookieToken) {\n            const verified = verifyToken(cookieToken);\n            if (verified) return verified;\n        }\n        return null;\n    } catch (err) {\n        return null;\n    }\n}\n/**\n * Set HTTP-only authentication cookie on a response object\n */ function attachAuthCookie(response, token) {\n    response.cookies.set(TOKEN_NAME, token, {\n        httpOnly: true,\n        secure: \"development\" === \"production\",\n        sameSite: \"lax\",\n        maxAge: 7 * 24 * 60 * 60,\n        path: \"/\"\n    });\n    return response;\n}\n/**\n * Clear authentication cookie on a response object\n */ function clearAuthCookie(response) {\n    response.cookies.set(TOKEN_NAME, \"\", {\n        httpOnly: true,\n        secure: \"development\" === \"production\",\n        sameSite: \"lax\",\n        maxAge: 0,\n        path: \"/\"\n    });\n    return response;\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9zcmMvbGliL2F1dGguanMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7QUFBK0I7QUFDRDtBQUNrQjtBQUVoRCxNQUFNSSxhQUFhQyxRQUFRQyxHQUFHLENBQUNDLGVBQWUsSUFBSTtBQUNsRCxNQUFNQyxhQUFhO0FBRW5COztDQUVDLEdBQ00sZUFBZUMsYUFBYUMsYUFBYTtJQUM5QyxNQUFNQyxPQUFPLE1BQU1WLHdEQUFjLENBQUM7SUFDbEMsT0FBT0EscURBQVcsQ0FBQ1MsZUFBZUM7QUFDcEM7QUFFQTs7Q0FFQyxHQUNNLGVBQWVHLGVBQWVKLGFBQWEsRUFBRUssY0FBYztJQUNoRSxPQUFPZCx3REFBYyxDQUFDUyxlQUFlSztBQUN2QztBQUVBOztDQUVDLEdBQ00sU0FBU0UsVUFBVUMsSUFBSTtJQUM1QixPQUFPbEIsd0RBQVEsQ0FDYjtRQUNFb0IsSUFBSUYsS0FBS0csR0FBRyxJQUFJSCxLQUFLRSxFQUFFO1FBQ3ZCRSxPQUFPSixLQUFLSSxLQUFLO1FBQ2pCQyxNQUFNTCxLQUFLSyxJQUFJO1FBQ2ZDLE1BQU1OLEtBQUtNLElBQUksSUFBSTtJQUNyQixHQUNBcEIsWUFDQTtRQUFFcUIsV0FBVztJQUFLO0FBRXRCO0FBRUE7O0NBRUMsR0FDTSxTQUFTQyxZQUFZQyxLQUFLO0lBQy9CLElBQUk7UUFDRixPQUFPM0IsMERBQVUsQ0FBQzJCLE9BQU92QjtJQUMzQixFQUFFLE9BQU95QixLQUFLO1FBQ1osT0FBTztJQUNUO0FBQ0Y7QUFFQTs7Q0FFQyxHQUNNLGVBQWVDLFdBQVdDLE9BQU87SUFDdEMsSUFBSTtRQUNGLHlFQUF5RTtRQUN6RSxJQUFJQyxhQUFhRCxTQUFTNUIsU0FBUzhCLE1BQU07UUFDekMsSUFBSSxDQUFDRCxZQUFZO1lBQ2YsSUFBSTtnQkFDRixNQUFNRSxjQUFjL0IscURBQU9BO2dCQUMzQjZCLGFBQWFFLFlBQVlELEdBQUcsQ0FBQztZQUMvQixFQUFFLE9BQU9FLEdBQUcsQ0FBQztRQUNmO1FBRUEsSUFBSUgsY0FBY0EsV0FBV0ksVUFBVSxDQUFDLFlBQVk7WUFDbEQsTUFBTVQsUUFBUUssV0FBV0ssS0FBSyxDQUFDLElBQUksQ0FBQyxFQUFFO1lBQ3RDLE1BQU1DLFdBQVdaLFlBQVlDO1lBQzdCLElBQUlXLFVBQVUsT0FBT0E7UUFDdkI7UUFFQSx3QkFBd0I7UUFDeEIsTUFBTUMsY0FBY3JDLHFEQUFPQTtRQUMzQixNQUFNc0MsY0FBY0QsWUFBWU4sR0FBRyxDQUFDekIsYUFBYWlDO1FBQ2pELElBQUlELGFBQWE7WUFDZixNQUFNRixXQUFXWixZQUFZYztZQUM3QixJQUFJRixVQUFVLE9BQU9BO1FBQ3ZCO1FBRUEsT0FBTztJQUNULEVBQUUsT0FBT1QsS0FBSztRQUNaLE9BQU87SUFDVDtBQUNGO0FBRUE7O0NBRUMsR0FDTSxTQUFTYSxpQkFBaUJDLFFBQVEsRUFBRWhCLEtBQUs7SUFDOUNnQixTQUFTekMsT0FBTyxDQUFDMEMsR0FBRyxDQUFDcEMsWUFBWW1CLE9BQU87UUFDdENrQixVQUFVO1FBQ1ZDLFFBQVF6QyxrQkFBeUI7UUFDakMwQyxVQUFVO1FBQ1ZDLFFBQVEsSUFBSSxLQUFLLEtBQUs7UUFDdEJDLE1BQU07SUFDUjtJQUNBLE9BQU9OO0FBQ1Q7QUFFQTs7Q0FFQyxHQUNNLFNBQVNPLGdCQUFnQlAsUUFBUTtJQUN0Q0EsU0FBU3pDLE9BQU8sQ0FBQzBDLEdBQUcsQ0FBQ3BDLFlBQVksSUFBSTtRQUNuQ3FDLFVBQVU7UUFDVkMsUUFBUXpDLGtCQUF5QjtRQUNqQzBDLFVBQVU7UUFDVkMsUUFBUTtRQUNSQyxNQUFNO0lBQ1I7SUFDQSxPQUFPTjtBQUNUIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vaGF2ZW4tZXN0YXRlLXByb3BlcnRpZXMvLi9zcmMvbGliL2F1dGguanM/ODdiZCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgand0IGZyb20gJ2pzb253ZWJ0b2tlbic7XG5pbXBvcnQgYmNyeXB0IGZyb20gJ2JjcnlwdGpzJztcbmltcG9ydCB7IGNvb2tpZXMsIGhlYWRlcnMgfSBmcm9tICduZXh0L2hlYWRlcnMnO1xuXG5jb25zdCBKV1RfU0VDUkVUID0gcHJvY2Vzcy5lbnYuTkVYVEFVVEhfU0VDUkVUIHx8ICdoYXZlbl9lc3RhdGVfZGV2ZWxvcG1lbnRfand0X3NlY3JldF9rZXlfMjAyNl94eXonO1xuY29uc3QgVE9LRU5fTkFNRSA9ICdoYXZlbl9hZG1pbl90b2tlbic7XG5cbi8qKlxuICogSGFzaCBhIHBsYWluIHBhc3N3b3JkIHVzaW5nIGJjcnlwdFxuICovXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gaGFzaFBhc3N3b3JkKHBsYWluUGFzc3dvcmQpIHtcbiAgY29uc3Qgc2FsdCA9IGF3YWl0IGJjcnlwdC5nZW5TYWx0KDEwKTtcbiAgcmV0dXJuIGJjcnlwdC5oYXNoKHBsYWluUGFzc3dvcmQsIHNhbHQpO1xufVxuXG4vKipcbiAqIFZlcmlmeSBhIHBsYWluIHBhc3N3b3JkIGFnYWluc3QgYSBiY3J5cHQgaGFzaFxuICovXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gdmVyaWZ5UGFzc3dvcmQocGxhaW5QYXNzd29yZCwgaGFzaGVkUGFzc3dvcmQpIHtcbiAgcmV0dXJuIGJjcnlwdC5jb21wYXJlKHBsYWluUGFzc3dvcmQsIGhhc2hlZFBhc3N3b3JkKTtcbn1cblxuLyoqXG4gKiBTaWduIGEgSldUIHRva2VuIGZvciBhbiBhdXRoZW50aWNhdGVkIHVzZXJcbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIHNpZ25Ub2tlbih1c2VyKSB7XG4gIHJldHVybiBqd3Quc2lnbihcbiAgICB7XG4gICAgICBpZDogdXNlci5faWQgfHwgdXNlci5pZCxcbiAgICAgIGVtYWlsOiB1c2VyLmVtYWlsLFxuICAgICAgbmFtZTogdXNlci5uYW1lLFxuICAgICAgcm9sZTogdXNlci5yb2xlIHx8ICdhZG1pbicsXG4gICAgfSxcbiAgICBKV1RfU0VDUkVULFxuICAgIHsgZXhwaXJlc0luOiAnN2QnIH1cbiAgKTtcbn1cblxuLyoqXG4gKiBWZXJpZnkgYSBKV1QgdG9rZW5cbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIHZlcmlmeVRva2VuKHRva2VuKSB7XG4gIHRyeSB7XG4gICAgcmV0dXJuIGp3dC52ZXJpZnkodG9rZW4sIEpXVF9TRUNSRVQpO1xuICB9IGNhdGNoIChlcnIpIHtcbiAgICByZXR1cm4gbnVsbDtcbiAgfVxufVxuXG4vKipcbiAqIEdldCBjdXJyZW50IGF1dGhlbnRpY2F0ZWQgYWRtaW4gc2Vzc2lvbiBmcm9tIGNvb2tpZXMgb3IgQXV0aG9yaXphdGlvbiBoZWFkZXJcbiAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGdldFNlc3Npb24ocmVxdWVzdCkge1xuICB0cnkge1xuICAgIC8vIDEuIENoZWNrIEF1dGhvcml6YXRpb24gaGVhZGVyIGZpcnN0IGlmIHByZXNlbnQgaW4gcmVxdWVzdCBvciBoZWFkZXJzKClcbiAgICBsZXQgYXV0aEhlYWRlciA9IHJlcXVlc3Q/LmhlYWRlcnM/LmdldD8uKCdhdXRob3JpemF0aW9uJyk7XG4gICAgaWYgKCFhdXRoSGVhZGVyKSB7XG4gICAgICB0cnkge1xuICAgICAgICBjb25zdCBoZWFkZXJTdG9yZSA9IGhlYWRlcnMoKTtcbiAgICAgICAgYXV0aEhlYWRlciA9IGhlYWRlclN0b3JlLmdldCgnYXV0aG9yaXphdGlvbicpO1xuICAgICAgfSBjYXRjaCAoZSkge31cbiAgICB9XG5cbiAgICBpZiAoYXV0aEhlYWRlciAmJiBhdXRoSGVhZGVyLnN0YXJ0c1dpdGgoJ0JlYXJlciAnKSkge1xuICAgICAgY29uc3QgdG9rZW4gPSBhdXRoSGVhZGVyLnNwbGl0KCcgJylbMV07XG4gICAgICBjb25zdCB2ZXJpZmllZCA9IHZlcmlmeVRva2VuKHRva2VuKTtcbiAgICAgIGlmICh2ZXJpZmllZCkgcmV0dXJuIHZlcmlmaWVkO1xuICAgIH1cblxuICAgIC8vIDIuIENoZWNrIENvb2tpZSBTdG9yZVxuICAgIGNvbnN0IGNvb2tpZVN0b3JlID0gY29va2llcygpO1xuICAgIGNvbnN0IGNvb2tpZVRva2VuID0gY29va2llU3RvcmUuZ2V0KFRPS0VOX05BTUUpPy52YWx1ZTtcbiAgICBpZiAoY29va2llVG9rZW4pIHtcbiAgICAgIGNvbnN0IHZlcmlmaWVkID0gdmVyaWZ5VG9rZW4oY29va2llVG9rZW4pO1xuICAgICAgaWYgKHZlcmlmaWVkKSByZXR1cm4gdmVyaWZpZWQ7XG4gICAgfVxuXG4gICAgcmV0dXJuIG51bGw7XG4gIH0gY2F0Y2ggKGVycikge1xuICAgIHJldHVybiBudWxsO1xuICB9XG59XG5cbi8qKlxuICogU2V0IEhUVFAtb25seSBhdXRoZW50aWNhdGlvbiBjb29raWUgb24gYSByZXNwb25zZSBvYmplY3RcbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGF0dGFjaEF1dGhDb29raWUocmVzcG9uc2UsIHRva2VuKSB7XG4gIHJlc3BvbnNlLmNvb2tpZXMuc2V0KFRPS0VOX05BTUUsIHRva2VuLCB7XG4gICAgaHR0cE9ubHk6IHRydWUsXG4gICAgc2VjdXJlOiBwcm9jZXNzLmVudi5OT0RFX0VOViA9PT0gJ3Byb2R1Y3Rpb24nLFxuICAgIHNhbWVTaXRlOiAnbGF4JyxcbiAgICBtYXhBZ2U6IDcgKiAyNCAqIDYwICogNjAsIC8vIDcgZGF5c1xuICAgIHBhdGg6ICcvJyxcbiAgfSk7XG4gIHJldHVybiByZXNwb25zZTtcbn1cblxuLyoqXG4gKiBDbGVhciBhdXRoZW50aWNhdGlvbiBjb29raWUgb24gYSByZXNwb25zZSBvYmplY3RcbiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGNsZWFyQXV0aENvb2tpZShyZXNwb25zZSkge1xuICByZXNwb25zZS5jb29raWVzLnNldChUT0tFTl9OQU1FLCAnJywge1xuICAgIGh0dHBPbmx5OiB0cnVlLFxuICAgIHNlY3VyZTogcHJvY2Vzcy5lbnYuTk9ERV9FTlYgPT09ICdwcm9kdWN0aW9uJyxcbiAgICBzYW1lU2l0ZTogJ2xheCcsXG4gICAgbWF4QWdlOiAwLFxuICAgIHBhdGg6ICcvJyxcbiAgfSk7XG4gIHJldHVybiByZXNwb25zZTtcbn1cbiJdLCJuYW1lcyI6WyJqd3QiLCJiY3J5cHQiLCJjb29raWVzIiwiaGVhZGVycyIsIkpXVF9TRUNSRVQiLCJwcm9jZXNzIiwiZW52IiwiTkVYVEFVVEhfU0VDUkVUIiwiVE9LRU5fTkFNRSIsImhhc2hQYXNzd29yZCIsInBsYWluUGFzc3dvcmQiLCJzYWx0IiwiZ2VuU2FsdCIsImhhc2giLCJ2ZXJpZnlQYXNzd29yZCIsImhhc2hlZFBhc3N3b3JkIiwiY29tcGFyZSIsInNpZ25Ub2tlbiIsInVzZXIiLCJzaWduIiwiaWQiLCJfaWQiLCJlbWFpbCIsIm5hbWUiLCJyb2xlIiwiZXhwaXJlc0luIiwidmVyaWZ5VG9rZW4iLCJ0b2tlbiIsInZlcmlmeSIsImVyciIsImdldFNlc3Npb24iLCJyZXF1ZXN0IiwiYXV0aEhlYWRlciIsImdldCIsImhlYWRlclN0b3JlIiwiZSIsInN0YXJ0c1dpdGgiLCJzcGxpdCIsInZlcmlmaWVkIiwiY29va2llU3RvcmUiLCJjb29raWVUb2tlbiIsInZhbHVlIiwiYXR0YWNoQXV0aENvb2tpZSIsInJlc3BvbnNlIiwic2V0IiwiaHR0cE9ubHkiLCJzZWN1cmUiLCJzYW1lU2l0ZSIsIm1heEFnZSIsInBhdGgiLCJjbGVhckF1dGhDb29raWUiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(rsc)/./src/lib/auth.js\n");
+
+/***/ }),
+
+/***/ "(rsc)/./src/lib/cloudinary.js":
+/*!*******************************!*\
+  !*** ./src/lib/cloudinary.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__),\n/* harmony export */   deleteMedia: () => (/* binding */ deleteMedia),\n/* harmony export */   isCloudinaryConfigured: () => (/* binding */ isCloudinaryConfigured),\n/* harmony export */   uploadMedia: () => (/* binding */ uploadMedia)\n/* harmony export */ });\n/* harmony import */ var cloudinary__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! cloudinary */ \"(rsc)/./node_modules/cloudinary/cloudinary.js\");\n/* harmony import */ var cloudinary__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(cloudinary__WEBPACK_IMPORTED_MODULE_0__);\n\n// Configure Cloudinary from environment variables\nif (process.env.CLOUDINARY_CLOUD_NAME && process.env.CLOUDINARY_API_KEY && process.env.CLOUDINARY_API_SECRET) {\n    cloudinary__WEBPACK_IMPORTED_MODULE_0__.v2.config({\n        cloud_name: process.env.CLOUDINARY_CLOUD_NAME,\n        api_key: process.env.CLOUDINARY_API_KEY,\n        api_secret: process.env.CLOUDINARY_API_SECRET,\n        secure: true\n    });\n}\nfunction isCloudinaryConfigured() {\n    return Boolean(process.env.CLOUDINARY_CLOUD_NAME && process.env.CLOUDINARY_API_KEY && process.env.CLOUDINARY_API_SECRET);\n}\n/**\n * Upload a media buffer / base64 string to Cloudinary\n * @param {string} fileStr - Base64 data URI or remote image URL\n * @param {object} options - upload options (folder, resource_type, etc.)\n */ async function uploadMedia(fileStr, options = {}) {\n    if (!isCloudinaryConfigured()) {\n        // If Cloudinary is not configured, return fileStr directly if base64/url\n        return {\n            url: fileStr,\n            publicId: `local-media-${Date.now()}`,\n            format: \"jpg\",\n            resourceType: options.resource_type || \"image\"\n        };\n    }\n    try {\n        const result = await cloudinary__WEBPACK_IMPORTED_MODULE_0__.v2.uploader.upload(fileStr, {\n            folder: \"haven_estate_properties\",\n            resource_type: options.resource_type || \"auto\",\n            ...options\n        });\n        return {\n            url: result.secure_url,\n            publicId: result.public_id,\n            format: result.format,\n            resourceType: result.resource_type,\n            width: result.width,\n            height: result.height\n        };\n    } catch (error) {\n        console.error(\"Cloudinary upload error:\", error);\n        throw new Error(error.message || \"Media upload failed\");\n    }\n}\n/**\n * Delete a media asset from Cloudinary\n */ async function deleteMedia(publicId, resourceType = \"image\") {\n    if (!isCloudinaryConfigured() || !publicId || publicId.startsWith(\"local-media\")) {\n        return {\n            result: \"ok\"\n        };\n    }\n    try {\n        return await cloudinary__WEBPACK_IMPORTED_MODULE_0__.v2.uploader.destroy(publicId, {\n            resource_type: resourceType\n        });\n    } catch (error) {\n        console.error(\"Cloudinary delete error:\", error);\n        return {\n            result: \"error\",\n            error\n        };\n    }\n}\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (cloudinary__WEBPACK_IMPORTED_MODULE_0__.v2);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKHJzYykvLi9zcmMvbGliL2Nsb3VkaW5hcnkuanMiLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBQThDO0FBRTlDLGtEQUFrRDtBQUNsRCxJQUFJRSxRQUFRQyxHQUFHLENBQUNDLHFCQUFxQixJQUFJRixRQUFRQyxHQUFHLENBQUNFLGtCQUFrQixJQUFJSCxRQUFRQyxHQUFHLENBQUNHLHFCQUFxQixFQUFFO0lBQzVHTCwwQ0FBVUEsQ0FBQ00sTUFBTSxDQUFDO1FBQ2hCQyxZQUFZTixRQUFRQyxHQUFHLENBQUNDLHFCQUFxQjtRQUM3Q0ssU0FBU1AsUUFBUUMsR0FBRyxDQUFDRSxrQkFBa0I7UUFDdkNLLFlBQVlSLFFBQVFDLEdBQUcsQ0FBQ0cscUJBQXFCO1FBQzdDSyxRQUFRO0lBQ1Y7QUFDRjtBQUVPLFNBQVNDO0lBQ2QsT0FBT0MsUUFDTFgsUUFBUUMsR0FBRyxDQUFDQyxxQkFBcUIsSUFDakNGLFFBQVFDLEdBQUcsQ0FBQ0Usa0JBQWtCLElBQzlCSCxRQUFRQyxHQUFHLENBQUNHLHFCQUFxQjtBQUVyQztBQUVBOzs7O0NBSUMsR0FDTSxlQUFlUSxZQUFZQyxPQUFPLEVBQUVDLFVBQVUsQ0FBQyxDQUFDO0lBQ3JELElBQUksQ0FBQ0osMEJBQTBCO1FBQzdCLHlFQUF5RTtRQUN6RSxPQUFPO1lBQ0xLLEtBQUtGO1lBQ0xHLFVBQVUsQ0FBQyxZQUFZLEVBQUVDLEtBQUtDLEdBQUcsR0FBRyxDQUFDO1lBQ3JDQyxRQUFRO1lBQ1JDLGNBQWNOLFFBQVFPLGFBQWEsSUFBSTtRQUN6QztJQUNGO0lBRUEsSUFBSTtRQUNGLE1BQU1DLFNBQVMsTUFBTXZCLDBDQUFVQSxDQUFDd0IsUUFBUSxDQUFDQyxNQUFNLENBQUNYLFNBQVM7WUFDdkRZLFFBQVE7WUFDUkosZUFBZVAsUUFBUU8sYUFBYSxJQUFJO1lBQ3hDLEdBQUdQLE9BQU87UUFDWjtRQUVBLE9BQU87WUFDTEMsS0FBS08sT0FBT0ksVUFBVTtZQUN0QlYsVUFBVU0sT0FBT0ssU0FBUztZQUMxQlIsUUFBUUcsT0FBT0gsTUFBTTtZQUNyQkMsY0FBY0UsT0FBT0QsYUFBYTtZQUNsQ08sT0FBT04sT0FBT00sS0FBSztZQUNuQkMsUUFBUVAsT0FBT08sTUFBTTtRQUN2QjtJQUNGLEVBQUUsT0FBT0MsT0FBTztRQUNkQyxRQUFRRCxLQUFLLENBQUMsNEJBQTRCQTtRQUMxQyxNQUFNLElBQUlFLE1BQU1GLE1BQU1HLE9BQU8sSUFBSTtJQUNuQztBQUNGO0FBRUE7O0NBRUMsR0FDTSxlQUFlQyxZQUFZbEIsUUFBUSxFQUFFSSxlQUFlLE9BQU87SUFDaEUsSUFBSSxDQUFDViw0QkFBNEIsQ0FBQ00sWUFBWUEsU0FBU21CLFVBQVUsQ0FBQyxnQkFBZ0I7UUFDaEYsT0FBTztZQUFFYixRQUFRO1FBQUs7SUFDeEI7SUFFQSxJQUFJO1FBQ0YsT0FBTyxNQUFNdkIsMENBQVVBLENBQUN3QixRQUFRLENBQUNhLE9BQU8sQ0FBQ3BCLFVBQVU7WUFDakRLLGVBQWVEO1FBQ2pCO0lBQ0YsRUFBRSxPQUFPVSxPQUFPO1FBQ2RDLFFBQVFELEtBQUssQ0FBQyw0QkFBNEJBO1FBQzFDLE9BQU87WUFBRVIsUUFBUTtZQUFTUTtRQUFNO0lBQ2xDO0FBQ0Y7QUFFQSxpRUFBZS9CLDBDQUFVQSxFQUFDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vaGF2ZW4tZXN0YXRlLXByb3BlcnRpZXMvLi9zcmMvbGliL2Nsb3VkaW5hcnkuanM/Y2JkNiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyB2MiBhcyBjbG91ZGluYXJ5IH0gZnJvbSAnY2xvdWRpbmFyeSc7XG5cbi8vIENvbmZpZ3VyZSBDbG91ZGluYXJ5IGZyb20gZW52aXJvbm1lbnQgdmFyaWFibGVzXG5pZiAocHJvY2Vzcy5lbnYuQ0xPVURJTkFSWV9DTE9VRF9OQU1FICYmIHByb2Nlc3MuZW52LkNMT1VESU5BUllfQVBJX0tFWSAmJiBwcm9jZXNzLmVudi5DTE9VRElOQVJZX0FQSV9TRUNSRVQpIHtcbiAgY2xvdWRpbmFyeS5jb25maWcoe1xuICAgIGNsb3VkX25hbWU6IHByb2Nlc3MuZW52LkNMT1VESU5BUllfQ0xPVURfTkFNRSxcbiAgICBhcGlfa2V5OiBwcm9jZXNzLmVudi5DTE9VRElOQVJZX0FQSV9LRVksXG4gICAgYXBpX3NlY3JldDogcHJvY2Vzcy5lbnYuQ0xPVURJTkFSWV9BUElfU0VDUkVULFxuICAgIHNlY3VyZTogdHJ1ZSxcbiAgfSk7XG59XG5cbmV4cG9ydCBmdW5jdGlvbiBpc0Nsb3VkaW5hcnlDb25maWd1cmVkKCkge1xuICByZXR1cm4gQm9vbGVhbihcbiAgICBwcm9jZXNzLmVudi5DTE9VRElOQVJZX0NMT1VEX05BTUUgJiZcbiAgICBwcm9jZXNzLmVudi5DTE9VRElOQVJZX0FQSV9LRVkgJiZcbiAgICBwcm9jZXNzLmVudi5DTE9VRElOQVJZX0FQSV9TRUNSRVRcbiAgKTtcbn1cblxuLyoqXG4gKiBVcGxvYWQgYSBtZWRpYSBidWZmZXIgLyBiYXNlNjQgc3RyaW5nIHRvIENsb3VkaW5hcnlcbiAqIEBwYXJhbSB7c3RyaW5nfSBmaWxlU3RyIC0gQmFzZTY0IGRhdGEgVVJJIG9yIHJlbW90ZSBpbWFnZSBVUkxcbiAqIEBwYXJhbSB7b2JqZWN0fSBvcHRpb25zIC0gdXBsb2FkIG9wdGlvbnMgKGZvbGRlciwgcmVzb3VyY2VfdHlwZSwgZXRjLilcbiAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIHVwbG9hZE1lZGlhKGZpbGVTdHIsIG9wdGlvbnMgPSB7fSkge1xuICBpZiAoIWlzQ2xvdWRpbmFyeUNvbmZpZ3VyZWQoKSkge1xuICAgIC8vIElmIENsb3VkaW5hcnkgaXMgbm90IGNvbmZpZ3VyZWQsIHJldHVybiBmaWxlU3RyIGRpcmVjdGx5IGlmIGJhc2U2NC91cmxcbiAgICByZXR1cm4ge1xuICAgICAgdXJsOiBmaWxlU3RyLFxuICAgICAgcHVibGljSWQ6IGBsb2NhbC1tZWRpYS0ke0RhdGUubm93KCl9YCxcbiAgICAgIGZvcm1hdDogJ2pwZycsXG4gICAgICByZXNvdXJjZVR5cGU6IG9wdGlvbnMucmVzb3VyY2VfdHlwZSB8fCAnaW1hZ2UnLFxuICAgIH07XG4gIH1cblxuICB0cnkge1xuICAgIGNvbnN0IHJlc3VsdCA9IGF3YWl0IGNsb3VkaW5hcnkudXBsb2FkZXIudXBsb2FkKGZpbGVTdHIsIHtcbiAgICAgIGZvbGRlcjogJ2hhdmVuX2VzdGF0ZV9wcm9wZXJ0aWVzJyxcbiAgICAgIHJlc291cmNlX3R5cGU6IG9wdGlvbnMucmVzb3VyY2VfdHlwZSB8fCAnYXV0bycsXG4gICAgICAuLi5vcHRpb25zLFxuICAgIH0pO1xuXG4gICAgcmV0dXJuIHtcbiAgICAgIHVybDogcmVzdWx0LnNlY3VyZV91cmwsXG4gICAgICBwdWJsaWNJZDogcmVzdWx0LnB1YmxpY19pZCxcbiAgICAgIGZvcm1hdDogcmVzdWx0LmZvcm1hdCxcbiAgICAgIHJlc291cmNlVHlwZTogcmVzdWx0LnJlc291cmNlX3R5cGUsXG4gICAgICB3aWR0aDogcmVzdWx0LndpZHRoLFxuICAgICAgaGVpZ2h0OiByZXN1bHQuaGVpZ2h0LFxuICAgIH07XG4gIH0gY2F0Y2ggKGVycm9yKSB7XG4gICAgY29uc29sZS5lcnJvcignQ2xvdWRpbmFyeSB1cGxvYWQgZXJyb3I6JywgZXJyb3IpO1xuICAgIHRocm93IG5ldyBFcnJvcihlcnJvci5tZXNzYWdlIHx8ICdNZWRpYSB1cGxvYWQgZmFpbGVkJyk7XG4gIH1cbn1cblxuLyoqXG4gKiBEZWxldGUgYSBtZWRpYSBhc3NldCBmcm9tIENsb3VkaW5hcnlcbiAqL1xuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGRlbGV0ZU1lZGlhKHB1YmxpY0lkLCByZXNvdXJjZVR5cGUgPSAnaW1hZ2UnKSB7XG4gIGlmICghaXNDbG91ZGluYXJ5Q29uZmlndXJlZCgpIHx8ICFwdWJsaWNJZCB8fCBwdWJsaWNJZC5zdGFydHNXaXRoKCdsb2NhbC1tZWRpYScpKSB7XG4gICAgcmV0dXJuIHsgcmVzdWx0OiAnb2snIH07XG4gIH1cblxuICB0cnkge1xuICAgIHJldHVybiBhd2FpdCBjbG91ZGluYXJ5LnVwbG9hZGVyLmRlc3Ryb3kocHVibGljSWQsIHtcbiAgICAgIHJlc291cmNlX3R5cGU6IHJlc291cmNlVHlwZSxcbiAgICB9KTtcbiAgfSBjYXRjaCAoZXJyb3IpIHtcbiAgICBjb25zb2xlLmVycm9yKCdDbG91ZGluYXJ5IGRlbGV0ZSBlcnJvcjonLCBlcnJvcik7XG4gICAgcmV0dXJuIHsgcmVzdWx0OiAnZXJyb3InLCBlcnJvciB9O1xuICB9XG59XG5cbmV4cG9ydCBkZWZhdWx0IGNsb3VkaW5hcnk7XG4iXSwibmFtZXMiOlsidjIiLCJjbG91ZGluYXJ5IiwicHJvY2VzcyIsImVudiIsIkNMT1VESU5BUllfQ0xPVURfTkFNRSIsIkNMT1VESU5BUllfQVBJX0tFWSIsIkNMT1VESU5BUllfQVBJX1NFQ1JFVCIsImNvbmZpZyIsImNsb3VkX25hbWUiLCJhcGlfa2V5IiwiYXBpX3NlY3JldCIsInNlY3VyZSIsImlzQ2xvdWRpbmFyeUNvbmZpZ3VyZWQiLCJCb29sZWFuIiwidXBsb2FkTWVkaWEiLCJmaWxlU3RyIiwib3B0aW9ucyIsInVybCIsInB1YmxpY0lkIiwiRGF0ZSIsIm5vdyIsImZvcm1hdCIsInJlc291cmNlVHlwZSIsInJlc291cmNlX3R5cGUiLCJyZXN1bHQiLCJ1cGxvYWRlciIsInVwbG9hZCIsImZvbGRlciIsInNlY3VyZV91cmwiLCJwdWJsaWNfaWQiLCJ3aWR0aCIsImhlaWdodCIsImVycm9yIiwiY29uc29sZSIsIkVycm9yIiwibWVzc2FnZSIsImRlbGV0ZU1lZGlhIiwic3RhcnRzV2l0aCIsImRlc3Ryb3kiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(rsc)/./src/lib/cloudinary.js\n");
+
+/***/ })
+
+};
+;
+
+// load runtime
+var __webpack_require__ = require("../../../webpack-runtime.js");
+__webpack_require__.C(exports);
+var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
+var __webpack_exports__ = __webpack_require__.X(0, ["vendor-chunks/next","vendor-chunks/semver","vendor-chunks/bcryptjs","vendor-chunks/jsonwebtoken","vendor-chunks/lodash.includes","vendor-chunks/jws","vendor-chunks/lodash.once","vendor-chunks/jwa","vendor-chunks/lodash.isinteger","vendor-chunks/ecdsa-sig-formatter","vendor-chunks/lodash.isplainobject","vendor-chunks/ms","vendor-chunks/lodash.isstring","vendor-chunks/lodash.isnumber","vendor-chunks/lodash.isboolean","vendor-chunks/safe-buffer","vendor-chunks/buffer-equal-constant-time","vendor-chunks/lodash","vendor-chunks/cloudinary"], () => (__webpack_exec__("(rsc)/./node_modules/next/dist/build/webpack/loaders/next-app-loader.js?name=app%2Fapi%2Fupload%2Froute&page=%2Fapi%2Fupload%2Froute&appPaths=&pagePath=private-next-app-dir%2Fapi%2Fupload%2Froute.js&appDir=C%3A%5CUsers%5Cmohit%5COneDrive%5CDesktop%5Cwebsite%5Csrc%5Capp&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&rootDir=C%3A%5CUsers%5Cmohit%5COneDrive%5CDesktop%5Cwebsite&isDev=true&tsconfigPath=tsconfig.json&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=&middlewareConfig=e30%3D!")));
+module.exports = __webpack_exports__;
+
+})();

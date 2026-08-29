@@ -49,11 +49,11 @@ export default function AdminSidebar({ mobileOpen = false, onCloseMobile }) {
           {/* Logo & Close */}
           <div className="flex items-center justify-between p-5 border-b border-slate-800">
             <Link href="/admin" className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-amber-500 shrink-0">
+              <div className="w-10 h-10 rounded-xl overflow-hidden bg-white p-1 shadow-sm shrink-0 border border-slate-700">
                 <img
-                  src={settings?.ownerPhoto || '/images/ashok-yadav.jpg'}
-                  alt="Ashok Yadav"
-                  className="w-full h-full object-cover"
+                  src="/images/logo.png"
+                  alt="Paras Properties"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <div className="flex flex-col">
@@ -61,7 +61,7 @@ export default function AdminSidebar({ mobileOpen = false, onCloseMobile }) {
                   {settings?.companyName || 'Paras Property'}
                 </span>
                 <span className="text-[10px] text-amber-400 font-semibold uppercase tracking-wider">
-                  Admin • Ashok Yadav
+                  Admin Portal
                 </span>
               </div>
             </Link>

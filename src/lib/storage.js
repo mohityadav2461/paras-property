@@ -1,10 +1,10 @@
-import { connectToDatabase } from './mongodb';
-import Property from './models/Property';
-import Lead from './models/Lead';
-import User from './models/User';
-import Setting from './models/Setting';
-import { initialProperties, initialLeads, defaultAdmin, defaultSettings } from './seedData';
-import { hashPassword } from './auth';
+import { connectToDatabase } from './mongodb.js';
+import Property from './models/Property.js';
+import Lead from './models/Lead.js';
+import User from './models/User.js';
+import Setting from './models/Setting.js';
+import { initialProperties, initialLeads, defaultAdmin, defaultSettings } from './seedData.js';
+import { hashPassword } from './auth.js';
 
 // In-memory persistent storage fallback
 let memoryStore = {
@@ -24,29 +24,36 @@ export async function ensureMongoSeeded() {
 
   try {
     const hashedAdminPassword = await hashPassword(defaultAdmin.password);
-    const userCount = await User.countDocuments();
+    const [userCount, propCount, leadCount, settingDoc] = await Promise.all([
+      User.countDocuments(),
+      Property.countDocuments(),
+      Lead.countDocuments(),
+      Setting.findOne({ key: 'general' }),
+    ]);
+
+    const seedTasks = [];
     if (userCount === 0) {
-      await User.create({
-        name: defaultAdmin.name,
-        email: defaultAdmin.email,
-        passwordHash: hashedAdminPassword,
-        role: 'admin',
-      });
+      seedTasks.push(
+        User.create({
+          name: defaultAdmin.name,
+          email: defaultAdmin.email,
+          passwordHash: hashedAdminPassword,
+          role: 'admin',
+        })
+      );
     }
-
-    const propCount = await Property.countDocuments();
     if (propCount === 0) {
-      await Property.insertMany(initialProperties);
+      seedTasks.push(Property.insertMany(initialProperties));
     }
-
-    const leadCount = await Lead.countDocuments();
     if (leadCount === 0) {
-      await Lead.insertMany(initialLeads);
+      seedTasks.push(Lead.insertMany(initialLeads));
+    }
+    if (!settingDoc) {
+      seedTasks.push(Setting.create(defaultSettings));
     }
 
-    const settingDoc = await Setting.findOne({ key: 'general' });
-    if (!settingDoc) {
-      await Setting.create(defaultSettings);
+    if (seedTasks.length > 0) {
+      await Promise.all(seedTasks);
     }
     mongoSeeded = true;
   } catch (err) {

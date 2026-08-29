@@ -24,7 +24,7 @@ export default function AdminLoginPage() {
     try {
       await login(email, password);
       showToast('Welcome back, Ashok ji!', 'success');
-      router.push('/admin');
+      window.location.href = '/admin';
     } catch (err) {
       setError(err.message || 'Invalid email or password');
     } finally {
@@ -42,16 +42,16 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-md space-y-8 bg-slate-900 border border-slate-800 p-8 rounded-2xl shadow-2xl">
         {/* Brand Logo & Heading */}
         <div className="text-center space-y-2">
-          <div className="relative mx-auto w-14 h-14 rounded-full overflow-hidden border-2 border-amber-500 shadow-md">
+          <div className="relative mx-auto w-14 h-14 rounded-2xl overflow-hidden bg-white p-1.5 shadow-md border border-slate-700 flex items-center justify-center">
             <img
-              src="/images/ashok-yadav.jpg"
-              alt="Ashok Yadav"
-              className="w-full h-full object-cover"
+              src="/images/logo.png"
+              alt="Paras Properties"
+              className="w-full h-full object-contain"
             />
           </div>
           <h2 className="text-2xl font-bold text-white tracking-tight">Paras Property</h2>
           <p className="text-xs text-slate-400">
-            Owner & Administration Portal (Ashok Yadav)
+            Administration Portal
           </p>
         </div>
 
@@ -114,7 +114,7 @@ export default function AdminLoginPage() {
             className="inline-flex items-center gap-1.5 text-xs text-amber-400 hover:text-amber-300 font-semibold"
           >
             <Key className="w-3.5 h-3.5" />
-            <span>Fill Ashok Yadav Admin Credentials</span>
+            <span>Fill Admin Demo Credentials</span>
           </button>
         </div>
 

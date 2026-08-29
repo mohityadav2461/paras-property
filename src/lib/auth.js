@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
-import { cookies, headers } from 'next/headers';
+import { cookies, headers } from 'next/headers.js';
 
 const JWT_SECRET = process.env.NEXTAUTH_SECRET || 'paras_property_super_secret_jwt_key_2026';
 const TOKEN_NAME = 'paras_admin_token';

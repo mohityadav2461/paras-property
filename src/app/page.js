@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import Link from 'next/link';
 import { 
   Building2, 
@@ -70,16 +70,10 @@ export default async function HomePage() {
       {/* ========================================================================= */}
       {/* 1. HOME / HERO SECTION (CLEAN, DIRECT & MODERN)                           */}
       {/* ========================================================================= */}
-      <section id="home" className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white pt-16 sm:pt-24 pb-28 sm:pb-36 scroll-mt-20">
+      <section id="home" className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white pt-16 sm:pt-24 pb-16 sm:pb-20 scroll-mt-20">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,119,6,0.18),rgba(255,255,255,0))]" />
 
         <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold tracking-wide">
-            <ShieldCheck className="w-4 h-4 text-amber-400" />
-            <span>Kotputli & Jaipur’s Trusted Real Estate Advisory</span>
-          </div>
-
           {/* Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white">
             Find Your Verified Plot with{' '}
@@ -130,52 +124,6 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* QUICK CORRIDOR SEARCH BAR */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 sm:-mt-28 relative z-20">
-        <div className="bg-white rounded-2xl border border-slate-200 p-5 sm:p-6 shadow-xl space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-100 pb-3">
-            <div>
-              <h3 className="text-base sm:text-lg font-bold text-slate-900">
-                Browse Properties by Corridor
-              </h3>
-              <p className="text-xs text-slate-500">
-                Handpicked inventory with clear title deeds and immediate registry.
-              </p>
-            </div>
-
-            <a
-              href="#properties"
-              className="text-xs font-bold text-amber-700 hover:underline self-start sm:self-auto"
-            >
-              View Below ↓
-            </a>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {[
-              { name: 'Jagatpura Corridor', query: 'Jagatpura', desc: 'Township Plots & Villas' },
-              { name: 'Ajmer Road Expressway', query: 'Ajmer Road', desc: 'SEZ Plots & Corner Lands' },
-              { name: 'Tonk Road Highway', query: 'Tonk Road', desc: 'Commercial Showrooms' },
-              { name: 'Mansarovar & Kukas', query: 'Mansarovar', desc: 'Villas & Farmhouses' },
-            ].map((loc, idx) => (
-              <Link
-                key={idx}
-                href={`/properties?location=${encodeURIComponent(loc.query)}`}
-                className="p-3.5 rounded-xl bg-slate-50 hover:bg-amber-50/70 border border-slate-200 hover:border-amber-400 transition-all text-left group"
-              >
-                <div className="flex items-center gap-1.5 text-slate-400 group-hover:text-amber-600 mb-1">
-                  <MapPin className="w-3.5 h-3.5 text-amber-600" />
-                  <span className="text-xs font-bold text-slate-800 group-hover:text-amber-900">
-                    {loc.name}
-                  </span>
-                </div>
-                <p className="text-[11px] text-slate-500">{loc.desc}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ========================================================================= */}
       {/* 2. PROPERTIES SECTION (VERIFIED PLOTS PORTFOLIO)                          */}
       {/* ========================================================================= */}
@@ -207,9 +155,14 @@ export default async function HomePage() {
             Properties currently updating. Please check back shortly.
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
             {featuredProperties.map((property) => (
-              <PropertyCard key={property._id || property.slug} property={property} />
+              <div
+                key={property._id || property.slug}
+                className="w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4rem)/3)] flex"
+              >
+                <PropertyCard property={property} />
+              </div>
             ))}
           </div>
         )}

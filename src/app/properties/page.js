@@ -128,9 +128,14 @@ function PropertiesContent() {
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
           {properties.map((property) => (
-            <PropertyCard key={property._id || property.slug} property={property} />
+            <div
+              key={property._id || property.slug}
+              className="w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4rem)/3)] flex"
+            >
+              <PropertyCard property={property} />
+            </div>
           ))}
         </div>
       )}

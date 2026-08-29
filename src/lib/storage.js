@@ -344,10 +344,40 @@ export async function deleteProperty(id) {
 
 // ----------------- LEADS CRUD & CRM ----------------- //
 
+export async function syncMemoryLeadsToMongo() {
+  const unsyncedLeads = memoryStore.leads.filter(
+    (l) => typeof l._id === 'string' && l._id.startsWith('lead_')
+  );
+  if (unsyncedLeads.length === 0) return;
+
+  const conn = await connectToDatabase();
+  if (!conn) return;
+
+  for (const lead of unsyncedLeads) {
+    try {
+      const existing = await Lead.findOne({
+        phone: lead.phone,
+        propertyTitle: lead.propertyTitle,
+      });
+      if (!existing) {
+        const { _id, ...docData } = lead;
+        const saved = await Lead.create(docData);
+        lead._id = String(saved._id);
+        console.log(`[STORAGE] Synced offline lead to MongoDB Atlas: ${lead.name} (${lead.phone})`);
+      } else {
+        lead._id = String(existing._id);
+      }
+    } catch (err) {
+      console.warn('Sync memory lead error:', err.message);
+    }
+  }
+}
+
 export async function getLeads({ status, search, source } = {}) {
   await initStorage();
   const conn = await connectToDatabase();
   if (conn) {
+    await syncMemoryLeadsToMongo();
     try {
       const query = {};
       if (status && status !== 'all') query.status = status;

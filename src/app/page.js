@@ -47,19 +47,17 @@ export default async function HomePage() {
   const teamMembers = [
     {
       name: 'Ashok Yadav',
-      role: 'Founder & Property Consultant',
+      role: 'Property Consultant',
       badge: '★ Founder',
       photo: '/images/ashok-yadav.jpg',
-      bio: 'Over a decade of hands-on expertise in prime residential plots, commercial lands, gated townships, and direct developer pricing across Kotputli & Jaipur.',
       phone: '+91 77426 50820',
       whatsapp: '7742650820',
     },
     {
       name: 'Adv. Balbir Singh',
-      role: 'Legal Advisor & Title Scrutiny',
-      badge: '★ Legal Consultant',
+      role: 'Legal Advisor',
+      badge: '★ Founder',
       photo: '/images/adv-balbir-singh.jpg',
-      bio: 'Advocate specializing in complete legal title verification, 30-year revenue record scrutiny, Jamabandi, Naksha approvals, and registry execution.',
       phone: '+91 70827 95453',
       whatsapp: '7082795453',
     },
@@ -155,12 +153,9 @@ export default async function HomePage() {
             Properties currently updating. Please check back shortly.
           </div>
         ) : (
-          <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
+          <div className="property-cards-container">
             {featuredProperties.map((property) => (
-              <div
-                key={property._id || property.slug}
-                className="w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4rem)/3)] flex"
-              >
+              <div key={property._id || property.slug} className="property-grid-item">
                 <PropertyCard property={property} />
               </div>
             ))}
@@ -415,12 +410,9 @@ export default async function HomePage() {
                   </div>
 
                   {/* Member Details */}
-                  <div className="text-center space-y-1.5">
+                  <div className="text-center space-y-1">
                     <h3 className="text-xl font-extrabold text-slate-900">{member.name}</h3>
-                    <p className="text-xs text-amber-600 font-bold">{member.role}</p>
-                    <p className="text-xs text-slate-600 leading-relaxed pt-1">
-                      {member.bio}
-                    </p>
+                    <p className="text-xs text-amber-600 font-bold tracking-wide uppercase">{member.role}</p>
                   </div>
                 </div>
 

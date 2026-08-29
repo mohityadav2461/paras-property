@@ -47,3 +47,36 @@
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* Centered property card layout when not a multiple of 3 */
+.property-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .property-cards-container {
+    gap: 2rem;
+  }
+}
+
+.property-grid-item {
+  width: 100%;
+  display: flex;
+}
+
+@media (min-width: 640px) {
+  .property-grid-item {
+    width: calc(50% - 1rem);
+    max-width: 420px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .property-grid-item {
+    width: calc(33.333% - 1.5rem);
+    max-width: 420px;
+  }
+}

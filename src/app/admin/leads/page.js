@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { 
   Users, 
@@ -48,7 +48,7 @@ export default function AdminLeadsPage() {
   const [search, setSearch] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('all');
 
-  const fetchLeads = async () => {
+  const fetchLeads = useCallback(async () => {
     try {
       setLoading(true);
       const url = selectedStatus === 'all' ? '/api/leads' : `/api/leads?status=${selectedStatus}`;
@@ -62,11 +62,11 @@ export default function AdminLeadsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [selectedStatus, showToast]);
 
   useEffect(() => {
     fetchLeads();
-  }, [selectedStatus, showToast]);
+  }, [fetchLeads]);
 
   const handleQuickStatus = async (id, newStatus) => {
     try {

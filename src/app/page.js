@@ -68,10 +68,11 @@ export default async function HomePage() {
       {/* ========================================================================= */}
       {/* 1. HOME / HERO SECTION (CLEAN, DIRECT & MODERN)                           */}
       {/* ========================================================================= */}
-      <section id="home" className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white pt-16 sm:pt-24 pb-16 sm:pb-20 scroll-mt-20">
+      <section id="home" className="relative min-h-screen flex flex-col justify-between items-center bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white pt-24 pb-8 sm:pt-28 sm:pb-10 scroll-mt-20">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(217,119,6,0.18),rgba(255,255,255,0))]" />
 
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+        {/* Centered Main Hero Content */}
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-7 my-auto">
           {/* Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight text-white">
             Find Your Verified Plot with{' '}
@@ -105,20 +106,31 @@ export default async function HomePage() {
           </div>
 
           {/* Trust Stats */}
-          <div className="pt-8 grid grid-cols-3 gap-4 border-t border-slate-800/80 max-w-lg mx-auto text-center">
+          <div className="pt-8 grid grid-cols-3 gap-6 sm:gap-8 border-t border-slate-800/80 max-w-lg mx-auto text-center">
             <div>
               <span className="text-2xl sm:text-3xl font-extrabold text-amber-400 block">500+</span>
-              <span className="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider">Happy Plot Owners</span>
+              <span className="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider font-semibold">Happy Plot Owners</span>
             </div>
             <div>
               <span className="text-2xl sm:text-3xl font-extrabold text-white block">100%</span>
-              <span className="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider">Clear Legal Deeds</span>
+              <span className="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider font-semibold">Clear Legal Deeds</span>
             </div>
             <div>
               <span className="text-2xl sm:text-3xl font-extrabold text-amber-400 block">0%</span>
-              <span className="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider">Brokerage Markup</span>
+              <span className="text-[11px] sm:text-xs text-slate-400 uppercase tracking-wider font-semibold">Brokerage Markup</span>
             </div>
           </div>
+        </div>
+
+        {/* Scroll hint at bottom of 100vh */}
+        <div className="relative pt-4 pb-2 text-center">
+          <a
+            href="#properties"
+            className="inline-flex flex-col items-center gap-1 text-xs font-semibold text-slate-400 hover:text-amber-400 transition-colors"
+          >
+            <span>Explore Properties</span>
+            <span className="text-amber-400 animate-bounce text-sm">↓</span>
+          </a>
         </div>
       </section>
 

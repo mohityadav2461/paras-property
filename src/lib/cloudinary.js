@@ -36,7 +36,7 @@ export async function uploadMedia(fileStr, options = {}) {
 
   try {
     const result = await cloudinary.uploader.upload(fileStr, {
-      folder: 'haven_estate_properties',
+      folder: 'paras_properties',
       resource_type: options.resource_type || 'auto',
       ...options,
     });

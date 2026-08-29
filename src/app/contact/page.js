@@ -31,8 +31,8 @@ export default function ContactPage() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const phone = settings?.phone || '+91 70827 95453';
-  const whatsappNumber = settings?.whatsapp || '7082795453';
+  const phone = settings?.phone || '+91 77426 50820';
+  const whatsappNumber = settings?.whatsapp || '7742650820';
   const ownerName = settings?.ownerName || 'Ashok & Balbir Singh';
 
   const whatsappLink = getWhatsAppUrl(
@@ -103,31 +103,33 @@ export default function ContactPage() {
           Get In Touch
         </span>
         <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-          Contact Ashok & Balbir Singh • Paras Property
+          Contact Paras Properties • Kotputli & Jaipur
         </h1>
         <p className="text-xs sm:text-sm text-slate-500">
-          Schedule a personalized site inspection, request verified revenue documents, or consult directly on land investment.
+          Schedule a personalized site inspection, request verified revenue documents, or consult directly on land investment with Ashok Yadav & Adv. Balbir Singh.
         </p>
       </div>
 
       {/* Main Grid: Contact Cards + Lead Form */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Left Column: Direct Contact Details for Both Teammates (1 col) */}
-        <div className="space-y-4">
+        <div className="space-y-5">
           {/* Ashok Yadav Card */}
-          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-            <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
-              <img
-                src="/images/ashok-yadav.jpg"
-                alt="Ashok Yadav"
-                className="w-13 h-13 rounded-full object-cover border-2 border-amber-500 shadow-sm"
-              />
-              <div>
-                <h3 className="text-base font-bold text-slate-900">Ashok Yadav</h3>
-                <span className="text-xs text-amber-600 font-bold block">
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+            <div className="flex items-center gap-3.5 border-b border-slate-100 pb-3.5">
+              <div className="w-14 h-14 shrink-0 rounded-full overflow-hidden border-2 border-amber-500 shadow-xs bg-slate-100">
+                <img
+                  src="/images/ashok-yadav.jpg"
+                  alt="Ashok Yadav"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div className="min-w-0 flex-1">
+                <h3 className="text-base font-bold text-slate-900 leading-tight">Ashok Yadav</h3>
+                <span className="text-xs text-amber-600 font-bold block mt-0.5">
                   Founder & Property Consultant
                 </span>
-                <span className="text-[11px] text-slate-400">Jaipur Land Acquisitions</span>
+                <span className="text-[11px] text-slate-400 block mt-0.5">Kotputli & Jaipur Acquisitions</span>
               </div>
             </div>
 
@@ -136,8 +138,8 @@ export default function ContactPage() {
                 href="tel:+917742650820"
                 className="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors"
               >
-                <Phone className="w-3.5 h-3.5 text-amber-400" />
-                <span>Call 7742650820</span>
+                <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span>Call Directly</span>
               </a>
 
               <a
@@ -146,26 +148,28 @@ export default function ContactPage() {
                 rel="noopener noreferrer"
                 className="py-2.5 px-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors"
               >
-                <MessageCircle className="w-3.5 h-3.5 fill-current" />
+                <MessageCircle className="w-3.5 h-3.5 fill-current shrink-0" />
                 <span>WhatsApp</span>
               </a>
             </div>
           </div>
 
           {/* Adv. Balbir Singh Card */}
-          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs space-y-4">
-            <div className="flex items-center gap-3 border-b border-slate-100 pb-3">
-              <img
-                src="/images/adv-balbir-singh.jpg"
-                alt="Adv. Balbir Singh"
-                className="w-13 h-13 rounded-full object-cover border-2 border-amber-500 shadow-sm"
-              />
-              <div>
-                <h3 className="text-base font-bold text-slate-900">Adv. Balbir Singh</h3>
-                <span className="text-xs text-amber-600 font-bold block">
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+            <div className="flex items-center gap-3.5 border-b border-slate-100 pb-3.5">
+              <div className="w-14 h-14 shrink-0 rounded-full overflow-hidden border-2 border-amber-500 shadow-xs bg-slate-100">
+                <img
+                  src="/images/adv-balbir-singh.jpg"
+                  alt="Adv. Balbir Singh"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
+              <div className="min-w-0 flex-1">
+                <h3 className="text-base font-bold text-slate-900 leading-tight">Adv. Balbir Singh</h3>
+                <span className="text-xs text-amber-600 font-bold block mt-0.5">
                   Advocate & Legal Advisor
                 </span>
-                <span className="text-[11px] text-slate-400">Title Scrutiny & Registry</span>
+                <span className="text-[11px] text-slate-400 block mt-0.5">Title Scrutiny & Registry</span>
               </div>
             </div>
 
@@ -174,8 +178,8 @@ export default function ContactPage() {
                 href="tel:+917082795453"
                 className="py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors"
               >
-                <Phone className="w-3.5 h-3.5 text-amber-400" />
-                <span>Call 7082795453</span>
+                <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span>Call Directly</span>
               </a>
 
               <a
@@ -184,7 +188,7 @@ export default function ContactPage() {
                 rel="noopener noreferrer"
                 className="py-2.5 px-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-colors"
               >
-                <MessageCircle className="w-3.5 h-3.5 fill-current" />
+                <MessageCircle className="w-3.5 h-3.5 fill-current shrink-0" />
                 <span>WhatsApp</span>
               </a>
             </div>

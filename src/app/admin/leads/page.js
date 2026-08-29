@@ -48,24 +48,24 @@ export default function AdminLeadsPage() {
   const [selectedStatus, setSelectedStatus] = useState('all');
 
   useEffect(() => {
-    fetchLeads();
-  }, [selectedStatus]);
-
-  const fetchLeads = async () => {
-    try {
-      setLoading(true);
-      const url = selectedStatus === 'all' ? '/api/leads' : `/api/leads?status=${selectedStatus}`;
-      const res = await fetch(url);
-      if (res.ok) {
-        const data = await res.json();
-        setLeads(data);
+    const fetchLeads = async () => {
+      try {
+        setLoading(true);
+        const url = selectedStatus === 'all' ? '/api/leads' : `/api/leads?status=${selectedStatus}`;
+        const res = await fetch(url);
+        if (res.ok) {
+          const data = await res.json();
+          setLeads(data);
+        }
+      } catch (e) {
+        showToast('Failed to load leads', 'error');
+      } finally {
+        setLoading(false);
       }
-    } catch (e) {
-      showToast('Failed to load leads', 'error');
-    } finally {
-      setLoading(false);
-    }
-  };
+    };
+
+    fetchLeads();
+  }, [selectedStatus, showToast]);
 
   const handleQuickStatus = async (id, newStatus) => {
     try {

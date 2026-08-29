@@ -142,7 +142,6 @@ const PropertySchema = new mongoose.Schema(
 );
 
 // Indexes for high performance searches & filters
-PropertySchema.index({ slug: 1 });
 PropertySchema.index({ status: 1, location: 1, propertyType: 1 });
 PropertySchema.index({ price: 1, size: 1 });
 PropertySchema.index({ createdAt: -1 });

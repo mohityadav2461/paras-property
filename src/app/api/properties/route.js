@@ -8,7 +8,7 @@ export async function GET(request) {
     const isAdmin = searchParams.get('admin') === 'true';
 
     if (isAdmin) {
-      const session = await getSession();
+      const session = await getSession(request);
       if (!session) {
         return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
       }
@@ -41,7 +41,7 @@ export async function GET(request) {
 
 export async function POST(request) {
   try {
-    const session = await getSession();
+    const session = await getSession(request);
     if (!session) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import Link from 'next/link';
 import { 
@@ -57,11 +57,7 @@ export default function AdminEditPropertyPage() {
   const [landmarkInput, setLandmarkInput] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  useEffect(() => {
-    fetchProperty();
-  }, [id]);
-
-  const fetchProperty = async () => {
+  const fetchProperty = useCallback(async () => {
     try {
       setLoading(true);
       const res = await fetch(`/api/properties/${id}`);
@@ -79,7 +75,11 @@ export default function AdminEditPropertyPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [id]);
+
+  useEffect(() => {
+    fetchProperty();
+  }, [fetchProperty]);
 
   const toggleAmenity = (amenity) => {
     setFormData((prev) => {

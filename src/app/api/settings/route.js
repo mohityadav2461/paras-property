@@ -13,7 +13,7 @@ export async function GET() {
 
 export async function PUT(request) {
   try {
-    const session = await getSession();
+    const session = await getSession(request);
     if (!session) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }

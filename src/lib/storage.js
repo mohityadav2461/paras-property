@@ -15,8 +15,50 @@ let memoryStore = {
   settings: { ...defaultSettings },
 };
 
+let mongoSeeded = false;
+
+export async function ensureMongoSeeded() {
+  if (mongoSeeded) return;
+  const conn = await connectToDatabase();
+  if (!conn) return;
+
+  try {
+    const hashedAdminPassword = await hashPassword(defaultAdmin.password);
+    const userCount = await User.countDocuments();
+    if (userCount === 0) {
+      await User.create({
+        name: defaultAdmin.name,
+        email: defaultAdmin.email,
+        passwordHash: hashedAdminPassword,
+        role: 'admin',
+      });
+    }
+
+    const propCount = await Property.countDocuments();
+    if (propCount === 0) {
+      await Property.insertMany(initialProperties);
+    }
+
+    const leadCount = await Lead.countDocuments();
+    if (leadCount === 0) {
+      await Lead.insertMany(initialLeads);
+    }
+
+    const settingDoc = await Setting.findOne({ key: 'general' });
+    if (!settingDoc) {
+      await Setting.create(defaultSettings);
+    }
+    mongoSeeded = true;
+  } catch (err) {
+    console.warn('Storage MongoDB seed notice:', err.message);
+  }
+}
+
 export async function initStorage() {
-  if (memoryStore.initialized) return;
+  if (memoryStore.initialized) {
+    await ensureMongoSeeded();
+    return;
+  }
 
   // Initialize in-memory fallback
   const hashedAdminPassword = await hashPassword(defaultAdmin.password);
@@ -25,15 +67,6 @@ export async function initStorage() {
       _id: 'user_admin_1',
       name: defaultAdmin.name,
       email: defaultAdmin.email,
-      passwordHash: hashedAdminPassword,
-      role: 'admin',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      _id: 'user_admin_2',
-      name: defaultAdmin.name,
-      email: 'admin@havenestate.com',
       passwordHash: hashedAdminPassword,
       role: 'admin',
       createdAt: new Date(),
@@ -58,38 +91,12 @@ export async function initStorage() {
   memoryStore.settings = { ...defaultSettings };
   memoryStore.initialized = true;
 
-  // If MongoDB is connected, ensure seed data exists in Mongo
-  try {
-    const conn = await connectToDatabase();
-    if (conn) {
-      const userCount = await User.countDocuments();
-      if (userCount === 0) {
-        await User.create({
-          name: defaultAdmin.name,
-          email: defaultAdmin.email,
-          passwordHash: hashedAdminPassword,
-          role: 'admin',
-        });
-      }
+  await ensureMongoSeeded();
+}
 
-      const propCount = await Property.countDocuments();
-      if (propCount === 0) {
-        await Property.insertMany(initialProperties);
-      }
-
-      const leadCount = await Lead.countDocuments();
-      if (leadCount === 0) {
-        await Lead.insertMany(initialLeads);
-      }
-
-      const settingDoc = await Setting.findOne({ key: 'general' });
-      if (!settingDoc) {
-        await Setting.create(defaultSettings);
-      }
-    }
-  } catch (err) {
-    console.warn('Storage init MongoDB sync notice:', err.message);
-  }
+function escapeRegex(str) {
+  if (typeof str !== 'string') return '';
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 // ----------------- PROPERTIES CRUD ----------------- //
@@ -109,7 +116,7 @@ export async function getProperties({ status, location, propertyType, minPrice, 
       }
 
       if (location && location !== 'all') {
-        query.location = { $regex: location, $options: 'i' };
+        query.location = { $regex: escapeRegex(location.trim()), $options: 'i' };
       }
       if (propertyType && propertyType !== 'all') {
         query.propertyType = propertyType;
@@ -127,7 +134,8 @@ export async function getProperties({ status, location, propertyType, minPrice, 
         query.size = { ...query.size, $lte: Number(maxSize) };
       }
       if (search && search.trim()) {
-        const searchRegex = { $regex: search.trim(), $options: 'i' };
+        const escaped = escapeRegex(search.trim());
+        const searchRegex = { $regex: escaped, $options: 'i' };
         query.$or = [
           { title: searchRegex },
           { location: searchRegex },
@@ -281,8 +289,12 @@ export async function updateProperty(id, data) {
   await initStorage();
   const conn = await connectToDatabase();
   if (conn) {
+    if (!mongoSeeded) await ensureMongoSeeded();
     try {
-      const updated = await Property.findByIdAndUpdate(id, data, { new: true }).lean();
+      const isObjectId = /^[0-9a-fA-F]{24}$/.test(id);
+      const updated = isObjectId
+        ? await Property.findByIdAndUpdate(id, data, { new: true }).lean()
+        : await Property.findOneAndUpdate({ slug: id }, data, { new: true }).lean();
       if (updated) return JSON.parse(JSON.stringify(updated));
     } catch (e) {
       console.warn('Mongo updateProperty fallback:', e.message);
@@ -305,8 +317,14 @@ export async function deleteProperty(id) {
   await initStorage();
   const conn = await connectToDatabase();
   if (conn) {
+    if (!mongoSeeded) await ensureMongoSeeded();
     try {
-      await Property.findByIdAndDelete(id);
+      const isObjectId = /^[0-9a-fA-F]{24}$/.test(id);
+      if (isObjectId) {
+        await Property.findByIdAndDelete(id);
+      } else {
+        await Property.findOneAndDelete({ slug: id });
+      }
       return { success: true };
     } catch (e) {
       console.warn('Mongo deleteProperty fallback:', e.message);
@@ -328,7 +346,8 @@ export async function getLeads({ status, search, source } = {}) {
       if (status && status !== 'all') query.status = status;
       if (source && source !== 'all') query.source = source;
       if (search && search.trim()) {
-        const s = { $regex: search.trim(), $options: 'i' };
+        const escaped = escapeRegex(search.trim());
+        const s = { $regex: escaped, $options: 'i' };
         query.$or = [{ name: s }, { phone: s }, { email: s }, { propertyTitle: s }];
       }
       const leads = await Lead.find(query).sort({ createdAt: -1 }).lean();
@@ -358,9 +377,13 @@ export async function getLeadById(id) {
   await initStorage();
   const conn = await connectToDatabase();
   if (conn) {
+    if (!mongoSeeded) await ensureMongoSeeded();
     try {
-      const lead = await Lead.findById(id).lean();
-      if (lead) return JSON.parse(JSON.stringify(lead));
+      const isObjectId = /^[0-9a-fA-F]{24}$/.test(id);
+      if (isObjectId) {
+        const lead = await Lead.findById(id).lean();
+        if (lead) return JSON.parse(JSON.stringify(lead));
+      }
     } catch (e) {
       console.warn('Mongo getLeadById fallback:', e.message);
     }
@@ -376,6 +399,7 @@ export async function createLead(leadData) {
   const conn = await connectToDatabase();
 
   if (conn) {
+    if (!mongoSeeded) await ensureMongoSeeded();
     try {
       const existing = await Lead.findOne({
         phone: leadData.phone,
@@ -389,7 +413,10 @@ export async function createLead(leadData) {
       const created = await Lead.create(leadData);
       // Increment property enquiry count
       if (leadData.propertyId) {
-        await Property.findByIdAndUpdate(leadData.propertyId, { $inc: { enquiryCount: 1 } });
+        const isObjectId = /^[0-9a-fA-F]{24}$/.test(leadData.propertyId);
+        if (isObjectId) {
+          await Property.findByIdAndUpdate(leadData.propertyId, { $inc: { enquiryCount: 1 } });
+        }
       }
       return JSON.parse(JSON.stringify(created));
     } catch (e) {
@@ -428,9 +455,13 @@ export async function updateLeadStatus(id, status) {
   await initStorage();
   const conn = await connectToDatabase();
   if (conn) {
+    if (!mongoSeeded) await ensureMongoSeeded();
     try {
-      const updated = await Lead.findByIdAndUpdate(id, { status }, { new: true }).lean();
-      if (updated) return JSON.parse(JSON.stringify(updated));
+      const isObjectId = /^[0-9a-fA-F]{24}$/.test(id);
+      if (isObjectId) {
+        const updated = await Lead.findByIdAndUpdate(id, { status }, { new: true }).lean();
+        if (updated) return JSON.parse(JSON.stringify(updated));
+      }
     } catch (e) {
       console.warn('Mongo updateLeadStatus fallback:', e.message);
     }
@@ -455,13 +486,17 @@ export async function addLeadNote(id, { note, createdBy = 'Admin Director' }) {
   };
 
   if (conn) {
+    if (!mongoSeeded) await ensureMongoSeeded();
     try {
-      const updated = await Lead.findByIdAndUpdate(
-        id,
-        { $push: { notes: newNote } },
-        { new: true }
-      ).lean();
-      if (updated) return JSON.parse(JSON.stringify(updated));
+      const isObjectId = /^[0-9a-fA-F]{24}$/.test(id);
+      if (isObjectId) {
+        const updated = await Lead.findByIdAndUpdate(
+          id,
+          { $push: { notes: newNote } },
+          { new: true }
+        ).lean();
+        if (updated) return JSON.parse(JSON.stringify(updated));
+      }
     } catch (e) {
       console.warn('Mongo addLeadNote fallback:', e.message);
     }

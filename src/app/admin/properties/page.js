@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { 
   Building2, 
@@ -25,11 +25,7 @@ export default function AdminPropertiesPage() {
   const [statusFilter, setStatusFilter] = useState('all');
   const [deletingId, setDeletingId] = useState(null);
 
-  useEffect(() => {
-    fetchProperties();
-  }, []);
-
-  const fetchProperties = async () => {
+  const fetchProperties = useCallback(async () => {
     try {
       setLoading(true);
       const res = await fetch('/api/properties?admin=true');
@@ -42,7 +38,11 @@ export default function AdminPropertiesPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [showToast]);
+
+  useEffect(() => {
+    fetchProperties();
+  }, [fetchProperties]);
 
   const handleStatusChange = async (id, newStatus) => {
     try {

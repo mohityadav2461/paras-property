@@ -12,8 +12,13 @@ export default function PropertyGallery({ images = [], title = 'Property Image' 
 
   const currentImage = displayImages[selectedIndex] || displayImages[0];
 
-  const nextImage = () => setSelectedIndex((prev) => (prev + 1) % displayImages.length);
-  const prevImage = () => setSelectedIndex((prev) => (prev - 1 + displayImages.length) % displayImages.length);
+  const nextImage = useCallback(() => {
+    setSelectedIndex((prev) => (prev + 1) % displayImages.length);
+  }, [displayImages.length]);
+
+  const prevImage = useCallback(() => {
+    setSelectedIndex((prev) => (prev - 1 + displayImages.length) % displayImages.length);
+  }, [displayImages.length]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -24,7 +29,7 @@ export default function PropertyGallery({ images = [], title = 'Property Image' 
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightboxOpen, displayImages.length]);
+  }, [lightboxOpen, nextImage, prevImage]);
 
   return (
     <div className="space-y-3">

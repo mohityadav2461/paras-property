@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { 
@@ -45,11 +45,7 @@ export default function AdminLeadDetailPage() {
   const [noteText, setNoteText] = useState('');
   const [addingNote, setAddingNote] = useState(false);
 
-  useEffect(() => {
-    fetchLead();
-  }, [id]);
-
-  const fetchLead = async () => {
+  const fetchLead = useCallback(async () => {
     try {
       setLoading(true);
       const res = await fetch(`/api/leads/${id}`);
@@ -61,7 +57,11 @@ export default function AdminLeadDetailPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [id, showToast]);
+
+  useEffect(() => {
+    fetchLead();
+  }, [fetchLead]);
 
   const handleStatusChange = async (newStatus) => {
     try {

@@ -78,10 +78,10 @@ function PropertiesContent() {
       {/* Page Heading */}
       <div className="space-y-1">
         <span className="text-xs font-bold uppercase tracking-wider text-amber-600 block">
-          Verified Real Estate Portfolio • Paras Property
+          Verified Real Estate Portfolio • Paras Properties
         </span>
         <h1 className="text-2xl sm:text-4xl font-extrabold text-slate-900">
-          Plots & Properties in Jaipur
+          Plots & Properties in Kotputli & Jaipur
         </h1>
         <p className="text-xs sm:text-sm text-slate-500 max-w-2xl">
           Browse verified residential plots, commercial lands, luxury villas, and farmhouses in prime growth corridors. Direct advisory with Ashok Yadav & Adv. Balbir Singh.

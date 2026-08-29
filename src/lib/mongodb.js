@@ -19,14 +19,22 @@ export async function connectToDatabase() {
     return null;
   }
 
-  if (cached.conn) {
+  // If cached and still connected, reuse connection
+  if (cached.conn && mongoose.connection.readyState === 1) {
     return cached.conn;
+  }
+
+  // If connection dropped or never initialized, reset
+  if (mongoose.connection.readyState !== 1 && mongoose.connection.readyState !== 2) {
+    cached.conn = null;
+    cached.promise = null;
   }
 
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
       serverSelectionTimeoutMS: 5000,
+      maxPoolSize: 10,
     };
 
     cached.promise = mongoose
@@ -36,7 +44,8 @@ export async function connectToDatabase() {
       })
       .catch((err) => {
         cached.promise = null;
-        console.warn('MongoDB connection failed, falling back to local storage:', err.message);
+        cached.conn = null;
+        console.warn('MongoDB connection notice:', err.message);
         return null;
       });
   }
@@ -45,6 +54,7 @@ export async function connectToDatabase() {
     cached.conn = await cached.promise;
   } catch (e) {
     cached.promise = null;
+    cached.conn = null;
     return null;
   }
 

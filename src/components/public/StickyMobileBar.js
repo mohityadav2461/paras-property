@@ -10,8 +10,8 @@ export default function StickyMobileBar({ property }) {
   const { settings } = useSettings();
   const [enquiryOpen, setEnquiryOpen] = useState(false);
 
-  const phone = '+91 77426 50820';
-  const whatsappNumber = '7742650820';
+  const phone = settings?.phone || '+91 77426 50820';
+  const whatsappNumber = settings?.whatsapp || '7742650820';
 
   const message = property
     ? getPropertyWhatsAppMessage(property)

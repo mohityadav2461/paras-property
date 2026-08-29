@@ -21,23 +21,23 @@ export default function AdminAnalyticsPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchAnalytics();
-  }, []);
-
-  const fetchAnalytics = async () => {
-    try {
-      setLoading(true);
-      const res = await fetch('/api/analytics');
-      if (res.ok) {
-        const analytics = await res.json();
-        setData(analytics);
+    const fetchAnalytics = async () => {
+      try {
+        setLoading(true);
+        const res = await fetch('/api/analytics');
+        if (res.ok) {
+          const analytics = await res.json();
+          setData(analytics);
+        }
+      } catch (e) {
+        showToast('Failed to load analytics', 'error');
+      } finally {
+        setLoading(false);
       }
-    } catch (e) {
-      showToast('Failed to load analytics', 'error');
-    } finally {
-      setLoading(false);
-    }
-  };
+    };
+
+    fetchAnalytics();
+  }, [showToast]);
 
   if (loading) {
     return (

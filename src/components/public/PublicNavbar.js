@@ -43,7 +43,7 @@ export default function PublicNavbar() {
   ];
 
   const whatsappLink = getWhatsAppUrl(
-    settings?.whatsapp || '7082795453',
+    settings?.whatsapp || '7742650820',
     `Hi Ashok ji & Balbir ji, I would like to enquire about available plots and properties listed on Paras Property.`
   );
 
@@ -162,7 +162,7 @@ export default function PublicNavbar() {
                 className="w-full py-2.5 rounded-lg bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-sm flex items-center justify-center gap-1.5"
               >
                 <MessageCircle className="w-4 h-4 fill-current" />
-                <span>Chat on WhatsApp ({settings?.whatsapp || '7082795453'})</span>
+                <span>Chat on WhatsApp ({settings?.whatsapp || '7742650820'})</span>
               </a>
             </div>
           </div>

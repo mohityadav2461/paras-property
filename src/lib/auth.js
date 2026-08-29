@@ -2,8 +2,8 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import { cookies, headers } from 'next/headers';
 
-const JWT_SECRET = process.env.NEXTAUTH_SECRET || 'haven_estate_development_jwt_secret_key_2026_xyz';
-const TOKEN_NAME = 'haven_admin_token';
+const JWT_SECRET = process.env.NEXTAUTH_SECRET || 'paras_property_super_secret_jwt_key_2026';
+const TOKEN_NAME = 'paras_admin_token';
 
 /**
  * Hash a plain password using bcrypt
@@ -67,9 +67,17 @@ export async function getSession(request) {
       if (verified) return verified;
     }
 
-    // 2. Check Cookie Store
-    const cookieStore = cookies();
-    const cookieToken = cookieStore.get(TOKEN_NAME)?.value;
+    // 2. Check Cookie from request object
+    let cookieToken = request?.cookies?.get?.(TOKEN_NAME)?.value || request?.cookies?.get?.('haven_admin_token')?.value;
+
+    // 3. Fallback to next/headers cookies()
+    if (!cookieToken) {
+      try {
+        const cookieStore = cookies();
+        cookieToken = cookieStore.get(TOKEN_NAME)?.value || cookieStore.get('haven_admin_token')?.value;
+      } catch (e) {}
+    }
+
     if (cookieToken) {
       const verified = verifyToken(cookieToken);
       if (verified) return verified;

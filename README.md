@@ -1,8 +1,8 @@
-# Haven Realty & Plots • Real Estate Property & Lead Generation Platform
+# Paras Properties • Real Estate Property & Lead Generation Platform
 
-A complete, production-ready real estate property and lead generation platform designed for property/plot businesses and optimized for **Meta Ads (Facebook & Instagram)** and **Google Ads** conversions.
+A complete, production-ready real estate property and lead generation platform designed for property/plot businesses across Kotputli & Jaipur and optimized for **Meta Ads (Facebook & Instagram)** and **Google Ads** conversions.
 
-Built with **JavaScript (ES6+ / React)**, **Next.js 14 (App Router)**, **Tailwind CSS**, **MongoDB & Mongoose**, **Cloudinary Media Storage**, and **JWT Authentication**.
+Built with **JavaScript (ES6+ / React)**, **Next.js 14 (App Router)**, **Tailwind CSS**, **MongoDB Atlas & Mongoose**, **Cloudinary Media Storage**, and **JWT Authentication**.
 
 ---
 
@@ -11,7 +11,7 @@ Built with **JavaScript (ES6+ / React)**, **Next.js 14 (App Router)**, **Tailwin
 ### 1. 🌐 Public Website (`/`)
 - **Conversion-Focused Hero**: Professional headline, supporting text, **Explore Properties** primary button, **Contact Us** secondary button, and **WhatsApp** CTA button.
 - **Multi-Criteria Property Search**:
-  - Filter by Location / Corridor (Jagatpura, Ajmer Road, Tonk Road, Mansarovar, Kukas, Sirsi Road)
+  - Filter by Location / Corridor (Kotputli, Jagatpura, Ajmer Road, Tonk Road, Mansarovar, Kukas, Sirsi Road)
   - Property Type (Residential Plot, Commercial Plot, Plot, Luxury Villa, Farmhouse Land, Commercial Land)
   - Minimum & Maximum Price Range
   - Minimum & Maximum Size (sq ft / Gaj)
@@ -31,8 +31,8 @@ Built with **JavaScript (ES6+ / React)**, **Next.js 14 (App Router)**, **Tailwin
 - **Direct WhatsApp Integration**:
   - Pre-filled custom enquiry messages with property title, location, and price
 - **Corporate & Compliance Pages**:
-  - `/about` (Company story, pillars, verified title commitment)
-  - `/contact` (Direct enquiry form, phone, WhatsApp, office details)
+  - `/about` (Ashok Yadav & Adv. Balbir Singh profiles, 4 pillars of trust)
+  - `/contact` (Direct enquiry form, phone, WhatsApp, Kotputli office details)
   - `/privacy-policy` & `/terms` (Compliant with Meta advertisement policies)
   - Dynamic `sitemap.xml` and `robots.txt`
 
@@ -42,7 +42,7 @@ Built with **JavaScript (ES6+ / React)**, **Next.js 14 (App Router)**, **Tailwin
 - **Secure Authentication**:
   - Protected routes under `/admin/*` (unauthenticated visitors redirected to `/admin/login`)
   - JWT token verification with HTTP-only cookies and Bearer authorization support
-  - Default Administrator: `admin@havenestate.com` / `admin123`
+  - Default Administrator: `admin@parasproperty.com` / `admin123`
 - **Dashboard Overview (`/admin`)**:
   - Real-time statistics: Total Properties, Available, Reserved, Sold, Total Leads, New Leads, Contacted, Converted
   - Recent Leads with status pills and 1-click dossier opening
@@ -97,11 +97,11 @@ Built with **JavaScript (ES6+ / React)**, **Next.js 14 (App Router)**, **Tailwin
 Create a `.env.local` file (or copy from `.env.example`):
 
 ```bash
-# MongoDB Connection (Optional for local testing; app includes built-in fallback)
-MONGODB_URI=mongodb://localhost:27017/haven_estate
+# MongoDB Connection (MongoDB Atlas Cluster or local)
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.qq4vzgh.mongodb.net/paras_property?retryWrites=true&w=majority
 
 # JWT Authentication Secret
-NEXTAUTH_SECRET=haven_estate_development_jwt_secret_key_2026_xyz
+NEXTAUTH_SECRET=paras_property_super_secret_jwt_key_2026
 
 # Cloudinary Storage (Optional for local testing)
 CLOUDINARY_CLOUD_NAME=your_cloud_name
@@ -109,8 +109,8 @@ CLOUDINARY_API_KEY=your_api_key
 CLOUDINARY_API_SECRET=your_api_secret
 
 # Business Contact Settings
-NEXT_PUBLIC_WHATSAPP_NUMBER=919876543210
-NEXT_PUBLIC_PHONE_NUMBER=+91 98765 43210
+NEXT_PUBLIC_WHATSAPP_NUMBER=7742650820
+NEXT_PUBLIC_PHONE_NUMBER=+91 77426 50820
 
 # Meta Pixel Tracking ID (Facebook / Instagram Ads)
 NEXT_PUBLIC_META_PIXEL_ID=
@@ -140,7 +140,7 @@ npm start
 ## 🔑 Default Admin Credentials
 
 - **URL**: [http://localhost:3000/admin/login](http://localhost:3000/admin/login)
-- **Email**: `admin@havenestate.com`
+- **Email**: `admin@parasproperty.com`
 - **Password**: `admin123`
 *(A "Fill Demo" shortcut button is provided on the login page for instant access)*
 

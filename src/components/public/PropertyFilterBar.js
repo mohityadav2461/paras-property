@@ -22,6 +22,7 @@ const propertyTypes = [
 
 const locationsList = [
   'All Locations',
+  'Kotputli',
   'Jagatpura',
   'Ajmer Road',
   'Tonk Road',

@@ -33,8 +33,8 @@ export default async function HomePage() {
     .filter((p) => p.isFeatured && p.status !== 'Hidden')
     .slice(0, 6);
 
-  const phone = settings?.phone || '+91 70827 95453';
-  const whatsappNumber = settings?.whatsapp || '7082795453';
+  const phone = settings?.phone || '+91 77426 50820';
+  const whatsappNumber = settings?.whatsapp || '7742650820';
 
   const defaultWhatsAppLink = getWhatsAppUrl(
     whatsappNumber,

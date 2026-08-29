@@ -3,9 +3,16 @@
  * @param {string} phoneNumber - Clean phone number with country code, e.g. 919876543210
  * @param {string} message - Pre-filled message text
  */
-export function getWhatsAppUrl(phoneNumber = '919876543210', message = '') {
+export function getWhatsAppUrl(phoneNumber = '917742650820', message = '') {
   // Clean phone string (remove +, spaces, dashes)
-  const cleanPhone = String(phoneNumber).replace(/\D/g, '');
+  let cleanPhone = String(phoneNumber || '917742650820').replace(/\D/g, '');
+  if (cleanPhone.startsWith('0')) {
+    cleanPhone = cleanPhone.replace(/^0+/, '');
+  }
+  // If 10 digits (standard Indian mobile without country code), prepend 91
+  if (cleanPhone.length === 10) {
+    cleanPhone = `91${cleanPhone}`;
+  }
   const encodedMsg = encodeURIComponent(message.trim());
   return `https://wa.me/${cleanPhone}?text=${encodedMsg}`;
 }

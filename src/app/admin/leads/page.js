@@ -13,7 +13,8 @@ import {
   Building,
   CheckCircle,
   AlertCircle,
-  Sparkles
+  Sparkles,
+  Trash2
 } from 'lucide-react';
 import { formatDate, formatShortDate } from '@/utils/formatters';
 import { getWhatsAppUrl } from '@/utils/whatsapp';
@@ -47,23 +48,23 @@ export default function AdminLeadsPage() {
   const [search, setSearch] = useState('');
   const [selectedStatus, setSelectedStatus] = useState('all');
 
-  useEffect(() => {
-    const fetchLeads = async () => {
-      try {
-        setLoading(true);
-        const url = selectedStatus === 'all' ? '/api/leads' : `/api/leads?status=${selectedStatus}`;
-        const res = await fetch(url);
-        if (res.ok) {
-          const data = await res.json();
-          setLeads(data);
-        }
-      } catch (e) {
-        showToast('Failed to load leads', 'error');
-      } finally {
-        setLoading(false);
+  const fetchLeads = async () => {
+    try {
+      setLoading(true);
+      const url = selectedStatus === 'all' ? '/api/leads' : `/api/leads?status=${selectedStatus}`;
+      const res = await fetch(url);
+      if (res.ok) {
+        const data = await res.json();
+        setLeads(data);
       }
-    };
+    } catch (e) {
+      showToast('Failed to load leads', 'error');
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchLeads();
   }, [selectedStatus, showToast]);
 
@@ -76,12 +77,27 @@ export default function AdminLeadsPage() {
       });
       if (res.ok) {
         setLeads((prev) =>
-          prev.map((l) => (l._id === id ? { ...l, status: newStatus } : l))
+          prev.map((l) => ((l._id === id || l.id === id) ? { ...l, status: newStatus } : l))
         );
         showToast(`Lead status updated to ${newStatus}`, 'success');
       }
     } catch (e) {
       showToast('Failed to update lead status', 'error');
+    }
+  };
+
+  const handleDeleteLead = async (id, name) => {
+    if (!window.confirm(`Are you sure you want to delete the lead for "${name}"?`)) return;
+    try {
+      const res = await fetch(`/api/leads/${id}`, { method: 'DELETE' });
+      if (res.ok) {
+        setLeads((prev) => prev.filter((l) => l._id !== id && l.id !== id));
+        showToast('Lead deleted successfully', 'success');
+      } else {
+        showToast('Failed to delete lead', 'error');
+      }
+    } catch (e) {
+      showToast('Error deleting lead', 'error');
     }
   };
 
@@ -92,7 +108,8 @@ export default function AdminLeadsPage() {
       l.name.toLowerCase().includes(s) ||
       l.phone.includes(s) ||
       (l.propertyTitle && l.propertyTitle.toLowerCase().includes(s)) ||
-      (l.email && l.email.toLowerCase().includes(s))
+      (l.email && l.email.toLowerCase().includes(s)) ||
+      (l.message && l.message.toLowerCase().includes(s))
     );
   });
 
@@ -109,6 +126,14 @@ export default function AdminLeadsPage() {
             Track inquiries from Meta Ads, Google, and direct web visitors. Follow up instantly on WhatsApp and phone.
           </p>
         </div>
+
+        <button
+          type="button"
+          onClick={fetchLeads}
+          className="self-start sm:self-auto px-3.5 py-2 bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 font-bold text-xs rounded-xl shadow-xs transition-colors flex items-center gap-1.5"
+        >
+          <span>⟳ Refresh Leads</span>
+        </button>
       </div>
 
       {/* Status Filter Tabs & Search */}
@@ -176,17 +201,18 @@ export default function AdminLeadsPage() {
               </thead>
               <tbody className="divide-y divide-slate-100">
                 {filteredLeads.map((lead) => {
+                  const leadId = lead._id || lead.id;
                   const leadWaLink = getWhatsAppUrl(
                     lead.phone,
-                    `Hello ${lead.name}, thank you for enquiring about "${lead.propertyTitle}". When would be a good time for a quick call / site visit?`
+                    `Hello ${lead.name}, this is Ashok Yadav & Adv. Balbir Singh from Paras Properties regarding your enquiry on "${lead.propertyTitle}". When would be a good time for a quick call or free site visit?`
                   );
 
                   return (
-                    <tr key={lead._id} className="hover:bg-slate-50/80 transition-colors">
+                    <tr key={leadId} className="hover:bg-slate-50/80 transition-colors">
                       {/* Name & Phone */}
                       <td className="px-5 py-4">
                         <Link
-                          href={`/admin/leads/${lead._id}`}
+                          href={`/admin/leads/${leadId}`}
                           className="font-bold text-slate-900 hover:text-emerald-700 block text-sm"
                         >
                           {lead.name}
@@ -202,13 +228,18 @@ export default function AdminLeadsPage() {
                       </td>
 
                       {/* Property Interested */}
-                      <td className="px-4 py-4">
-                        <span className="font-semibold text-emerald-800 block line-clamp-1">
+                      <td className="px-4 py-4 max-w-[240px]">
+                        <span className="font-semibold text-slate-900 block truncate">
                           {lead.propertyTitle}
                         </span>
                         {lead.budget && (
                           <span className="text-[11px] text-slate-500 block">
                             Budget: {lead.budget}
+                          </span>
+                        )}
+                        {lead.message && (
+                          <span className="text-[11px] text-slate-500 italic block mt-0.5 truncate" title={lead.message}>
+                            &ldquo;{lead.message}&rdquo;
                           </span>
                         )}
                       </td>
@@ -229,7 +260,7 @@ export default function AdminLeadsPage() {
                       <td className="px-4 py-4">
                         <select
                           value={lead.status}
-                          onChange={(e) => handleQuickStatus(lead._id, e.target.value)}
+                          onChange={(e) => handleQuickStatus(leadId, e.target.value)}
                           className={`px-2.5 py-1 rounded-md text-[11px] font-bold border cursor-pointer focus:outline-none ${
                             statusColors[lead.status] || statusColors.New
                           }`}
@@ -274,11 +305,21 @@ export default function AdminLeadsPage() {
 
                           {/* Open Dossier */}
                           <Link
-                            href={`/admin/leads/${lead._id}`}
+                            href={`/admin/leads/${leadId}`}
                             className="px-2.5 py-1.5 bg-slate-900 hover:bg-slate-800 text-white font-bold text-[11px] rounded-lg transition-colors"
                           >
                             View
                           </Link>
+
+                          {/* Delete Lead Button */}
+                          <button
+                            type="button"
+                            onClick={() => handleDeleteLead(leadId, lead.name)}
+                            className="p-1.5 hover:bg-rose-50 text-slate-400 hover:text-rose-600 rounded-lg transition-colors"
+                            title="Delete Lead"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
                         </div>
                       </td>
                     </tr>

@@ -18,7 +18,8 @@ import {
   MessageSquare,
   Sparkles,
   ExternalLink,
-  Loader2
+  Loader2,
+  Trash2
 } from 'lucide-react';
 import { formatDate } from '@/utils/formatters';
 import { getWhatsAppUrl } from '@/utils/whatsapp';
@@ -106,6 +107,21 @@ export default function AdminLeadDetailPage() {
     }
   };
 
+  const handleDeleteLead = async () => {
+    if (!window.confirm(`Are you sure you want to permanently delete the lead for "${lead?.name}"?`)) return;
+    try {
+      const res = await fetch(`/api/leads/${id}`, { method: 'DELETE' });
+      if (res.ok) {
+        showToast('Lead deleted successfully', 'success');
+        router.push('/admin/leads');
+      } else {
+        showToast('Failed to delete lead', 'error');
+      }
+    } catch (e) {
+      showToast('Error deleting lead', 'error');
+    }
+  };
+
   if (loading) {
     return (
       <div className="p-12 text-center space-y-3">
@@ -131,7 +147,7 @@ export default function AdminLeadDetailPage() {
 
   const waLink = getWhatsAppUrl(
     lead.phone,
-    `Hello ${lead.name}, this is from Haven Realty regarding your enquiry on "${lead.propertyTitle}". When is a good time for a brief call / site visit?`
+    `Hello ${lead.name}, this is Ashok Yadav & Adv. Balbir Singh from Paras Properties regarding your enquiry on "${lead.propertyTitle}". When is a good time for a brief call or free site visit?`
   );
 
   return (
@@ -354,6 +370,24 @@ export default function AdminLeadDetailPage() {
                 ))
               )}
             </div>
+          </div>
+
+          {/* Danger Zone: Delete Lead */}
+          <div className="bg-white p-5 rounded-2xl border border-rose-100 shadow-xs space-y-3">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-rose-600">
+              Danger Zone
+            </h4>
+            <p className="text-[11px] text-slate-500">
+              Permanently remove this lead and its associated call notes from the database.
+            </p>
+            <button
+              type="button"
+              onClick={handleDeleteLead}
+              className="w-full py-2.5 px-3 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-colors border border-rose-200"
+            >
+              <Trash2 className="w-4 h-4" />
+              <span>Delete Lead</span>
+            </button>
           </div>
         </div>
       </div>

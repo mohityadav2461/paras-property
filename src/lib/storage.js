@@ -431,9 +431,15 @@ export async function getLeadById(id) {
 export async function createLead(leadData) {
   await initStorage();
 
-  // Prevent accidental duplicate within last 5 minutes with same phone & property
-  const fiveMinAgo = new Date(Date.now() - 5 * 60 * 1000);
+  // Prevent accidental rapid double-clicks within last 2 seconds with same phone & property
+  const twoSecAgo = new Date(Date.now() - 2 * 1000);
   const conn = await connectToDatabase();
+
+  const initialNote = {
+    note: `Enquiry submitted via ${leadData.source || 'Website'}${leadData.budget ? ` | Budget: ${leadData.budget}` : ''}${leadData.message ? ` | Message: "${leadData.message}"` : ''}`,
+    createdBy: 'System (Lead Form)',
+    createdAt: new Date(),
+  };
 
   if (conn) {
     if (!mongoSeeded) await ensureMongoSeeded();
@@ -441,13 +447,21 @@ export async function createLead(leadData) {
       const existing = await Lead.findOne({
         phone: leadData.phone,
         propertyTitle: leadData.propertyTitle,
-        createdAt: { $gte: fiveMinAgo },
+        createdAt: { $gte: twoSecAgo },
       });
       if (existing) {
         return JSON.parse(JSON.stringify(existing));
       }
 
-      const created = await Lead.create(leadData);
+      const docToCreate = {
+        ...leadData,
+        status: leadData.status || 'New',
+        notes: [initialNote],
+      };
+
+      const created = await Lead.create(docToCreate);
+      console.log(`[STORAGE] Successfully stored lead in MongoDB Atlas: ${created.name} (${created.phone})`);
+
       // Increment property enquiry count
       if (leadData.propertyId) {
         const isObjectId = /^[0-9a-fA-F]{24}$/.test(leadData.propertyId);
@@ -457,7 +471,7 @@ export async function createLead(leadData) {
       }
       return JSON.parse(JSON.stringify(created));
     } catch (e) {
-      console.warn('Mongo createLead fallback:', e.message);
+      console.warn('Mongo createLead fallback to memory:', e.message);
     }
   }
 
@@ -465,7 +479,7 @@ export async function createLead(leadData) {
     (l) =>
       l.phone === leadData.phone &&
       l.propertyTitle === leadData.propertyTitle &&
-      new Date(l.createdAt) >= fiveMinAgo
+      new Date(l.createdAt) >= twoSecAgo
   );
   if (existingMemory) return existingMemory;
 
@@ -473,19 +487,35 @@ export async function createLead(leadData) {
     ...leadData,
     _id: `lead_${Date.now()}`,
     status: 'New',
-    notes: [
-      {
-        note: `Enquiry submitted via ${leadData.source || 'Website'}${leadData.utmCampaign ? ` (Campaign: ${leadData.utmCampaign})` : ''}`,
-        createdBy: 'System (Lead Form)',
-        createdAt: new Date(),
-      },
-    ],
+    notes: [initialNote],
     createdAt: new Date(),
     updatedAt: new Date(),
   };
 
   memoryStore.leads.unshift(newLead);
   return newLead;
+}
+
+export async function deleteLead(id) {
+  await initStorage();
+  const conn = await connectToDatabase();
+  if (conn) {
+    if (!mongoSeeded) await ensureMongoSeeded();
+    try {
+      const isObjectId = /^[0-9a-fA-F]{24}$/.test(id);
+      if (isObjectId) {
+        await Lead.findByIdAndDelete(id);
+      } else {
+        await Lead.findOneAndDelete({ _id: id });
+      }
+      return { success: true };
+    } catch (e) {
+      console.warn('Mongo deleteLead fallback:', e.message);
+    }
+  }
+
+  memoryStore.leads = memoryStore.leads.filter((l) => l._id !== id && String(l.id) !== id);
+  return { success: true };
 }
 
 export async function updateLeadStatus(id, status) {

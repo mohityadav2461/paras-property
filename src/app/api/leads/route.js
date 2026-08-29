@@ -23,7 +23,7 @@ export async function GET(request) {
 }
 
 const leadSubmissions = new Map();
-const MAX_LEADS_PER_WINDOW = 10;
+const MAX_LEADS_PER_WINDOW = 50;
 const LEAD_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
 
 function getClientIp(request) {
@@ -35,23 +35,27 @@ function getClientIp(request) {
 export async function POST(request) {
   try {
     const ip = getClientIp(request);
-    const now = Date.now();
-    const subRecord = leadSubmissions.get(ip) || { count: 0, firstSubmission: now };
+    const isLocalhost = ip === '127.0.0.1' || ip === '::1' || ip === 'unknown-client';
 
-    if (now - subRecord.firstSubmission > LEAD_WINDOW_MS) {
-      subRecord.count = 0;
-      subRecord.firstSubmission = now;
+    if (!isLocalhost) {
+      const now = Date.now();
+      const subRecord = leadSubmissions.get(ip) || { count: 0, firstSubmission: now };
+
+      if (now - subRecord.firstSubmission > LEAD_WINDOW_MS) {
+        subRecord.count = 0;
+        subRecord.firstSubmission = now;
+      }
+
+      if (subRecord.count >= MAX_LEADS_PER_WINDOW) {
+        return NextResponse.json(
+          { error: 'You have submitted multiple enquiries recently. Please wait a few minutes before trying again.' },
+          { status: 429 }
+        );
+      }
+
+      subRecord.count += 1;
+      leadSubmissions.set(ip, subRecord);
     }
-
-    if (subRecord.count >= MAX_LEADS_PER_WINDOW) {
-      return NextResponse.json(
-        { error: 'You have submitted multiple enquiries recently. Please wait a few minutes before trying again.' },
-        { status: 429 }
-      );
-    }
-
-    subRecord.count += 1;
-    leadSubmissions.set(ip, subRecord);
 
     const body = await request.json();
     const { name, phone, email, propertyId, propertyTitle, propertySlug, budget, message, source, utmSource, utmMedium, utmCampaign, utmContent, utmTerm, landingPage, referrer } = body;

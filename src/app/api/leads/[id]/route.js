@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getLeadById, updateLeadStatus } from '@/lib/storage';
+import { getLeadById, updateLeadStatus, deleteLead } from '@/lib/storage';
 import { getSession } from '@/lib/auth';
 
 export async function GET(request, { params }) {
@@ -45,5 +45,20 @@ export async function PATCH(request, { params }) {
     return NextResponse.json({ success: true, lead: updated });
   } catch (error) {
     return NextResponse.json({ error: 'Failed to update lead status' }, { status: 500 });
+  }
+}
+
+export async function DELETE(request, { params }) {
+  try {
+    const session = await getSession(request);
+    if (!session) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const { id } = params;
+    await deleteLead(id);
+    return NextResponse.json({ success: true, message: 'Lead deleted successfully' });
+  } catch (error) {
+    return NextResponse.json({ error: 'Failed to delete lead' }, { status: 500 });
   }
 }

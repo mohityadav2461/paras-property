@@ -36,10 +36,12 @@ export default function PublicNavbar() {
   }, [pathname]);
 
   const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Properties & Plots', href: '/properties' },
-    { name: 'About Team', href: '/about' },
-    { name: 'Contact & Office', href: '/contact' },
+    { name: 'Home', href: '/#home' },
+    { name: 'Properties', href: '/#properties' },
+    { name: 'Office', href: '/#office' },
+    { name: 'Reviews', href: '/#trust' },
+    { name: 'Our Team', href: '/#team' },
+    { name: 'Site Visit', href: '/#contact' },
   ];
 
   const whatsappLink = getWhatsAppUrl(
